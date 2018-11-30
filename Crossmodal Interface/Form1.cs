@@ -117,7 +117,7 @@ namespace Crossmodal_Interface
             }
             else if(e.KeyCode == Keys.Left)
             {
-
+                
                 if (count == 0 || visualIntensity == 0)
                 {
                     //prevent negative value
