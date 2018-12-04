@@ -28,14 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label1 = new System.Windows.Forms.Label();
-            this.visual = new System.Windows.Forms.PictureBox();
-            this.auditory = new System.Windows.Forms.PictureBox();
-            this.newUser = new System.Windows.Forms.Button();
-            this.setValue = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.visual)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.auditory)).BeginInit();
+            this.VA = new System.Windows.Forms.Button();
+            this.VT = new System.Windows.Forms.Button();
+            this.AV = new System.Windows.Forms.Button();
+            this.AT = new System.Windows.Forms.Button();
+            this.TA = new System.Windows.Forms.Button();
+            this.TV = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -46,48 +45,65 @@
             this.label1.Size = new System.Drawing.Size(0, 13);
             this.label1.TabIndex = 1;
             // 
-            // visual
+            // VA
             // 
-            this.visual.ErrorImage = null;
-            this.visual.Image = ((System.Drawing.Image)(resources.GetObject("visual.Image")));
-            this.visual.InitialImage = null;
-            this.visual.Location = new System.Drawing.Point(290, 155);
-            this.visual.Name = "visual";
-            this.visual.Size = new System.Drawing.Size(117, 116);
-            this.visual.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.visual.TabIndex = 2;
-            this.visual.TabStop = false;
+            this.VA.Location = new System.Drawing.Point(160, 171);
+            this.VA.Name = "VA";
+            this.VA.Size = new System.Drawing.Size(80, 80);
+            this.VA.TabIndex = 2;
+            this.VA.Text = "V-A";
+            this.VA.UseVisualStyleBackColor = true;
+            this.VA.Click += new System.EventHandler(this.VA_Click);
             // 
-            // auditory
+            // VT
             // 
-            this.auditory.Image = global::Crossmodal_Interface.Properties.Resources.auditory;
-            this.auditory.Location = new System.Drawing.Point(463, 155);
-            this.auditory.Name = "auditory";
-            this.auditory.Size = new System.Drawing.Size(160, 116);
-            this.auditory.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.auditory.TabIndex = 3;
-            this.auditory.TabStop = false;
+            this.VT.Location = new System.Drawing.Point(338, 171);
+            this.VT.Name = "VT";
+            this.VT.Size = new System.Drawing.Size(80, 80);
+            this.VT.TabIndex = 3;
+            this.VT.Text = "V-T";
+            this.VT.UseVisualStyleBackColor = true;
+            this.VT.Click += new System.EventHandler(this.VT_Click);
             // 
-            // newUser
+            // AV
             // 
-            this.newUser.Location = new System.Drawing.Point(12, 504);
-            this.newUser.Name = "newUser";
-            this.newUser.Size = new System.Drawing.Size(90, 31);
-            this.newUser.TabIndex = 4;
-            this.newUser.Text = "New User";
-            this.newUser.UseVisualStyleBackColor = true;
-            this.newUser.Click += new System.EventHandler(this.button1_Click);
+            this.AV.Location = new System.Drawing.Point(508, 171);
+            this.AV.Name = "AV";
+            this.AV.Size = new System.Drawing.Size(80, 80);
+            this.AV.TabIndex = 4;
+            this.AV.Text = "A-V";
+            this.AV.UseVisualStyleBackColor = true;
+            this.AV.Click += new System.EventHandler(this.AV_Click);
             // 
-            // setValue
+            // AT
             // 
-            this.setValue.BackColor = System.Drawing.Color.Red;
-            this.setValue.Location = new System.Drawing.Point(600, 491);
-            this.setValue.Name = "setValue";
-            this.setValue.Size = new System.Drawing.Size(143, 44);
-            this.setValue.TabIndex = 5;
-            this.setValue.Text = "Set";
-            this.setValue.UseVisualStyleBackColor = false;
-            this.setValue.Visible = false;
+            this.AT.Location = new System.Drawing.Point(160, 321);
+            this.AT.Name = "AT";
+            this.AT.Size = new System.Drawing.Size(80, 80);
+            this.AT.TabIndex = 5;
+            this.AT.Text = "A-T";
+            this.AT.UseVisualStyleBackColor = true;
+            this.AT.Click += new System.EventHandler(this.AT_Click);
+            // 
+            // TA
+            // 
+            this.TA.Location = new System.Drawing.Point(338, 321);
+            this.TA.Name = "TA";
+            this.TA.Size = new System.Drawing.Size(80, 80);
+            this.TA.TabIndex = 6;
+            this.TA.Text = "T-A";
+            this.TA.UseVisualStyleBackColor = true;
+            this.TA.Click += new System.EventHandler(this.TA_Click);
+            // 
+            // TV
+            // 
+            this.TV.Location = new System.Drawing.Point(508, 321);
+            this.TV.Name = "TV";
+            this.TV.Size = new System.Drawing.Size(80, 80);
+            this.TV.TabIndex = 7;
+            this.TV.Text = "T-V";
+            this.TV.UseVisualStyleBackColor = true;
+            this.TV.Click += new System.EventHandler(this.TV_Click);
             // 
             // Form1
             // 
@@ -95,17 +111,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(755, 547);
-            this.Controls.Add(this.setValue);
-            this.Controls.Add(this.newUser);
-            this.Controls.Add(this.auditory);
-            this.Controls.Add(this.visual);
+            this.Controls.Add(this.TV);
+            this.Controls.Add(this.TA);
+            this.Controls.Add(this.AT);
+            this.Controls.Add(this.AV);
+            this.Controls.Add(this.VT);
+            this.Controls.Add(this.VA);
             this.Controls.Add(this.label1);
             this.KeyPreview = true;
             this.Name = "Form1";
             this.Text = "Crossmodal Matching";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.visual)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.auditory)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -114,10 +130,12 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox visual;
-        private System.Windows.Forms.PictureBox auditory;
-        private System.Windows.Forms.Button newUser;
-        private System.Windows.Forms.Button setValue;
+        private System.Windows.Forms.Button VA;
+        private System.Windows.Forms.Button VT;
+        private System.Windows.Forms.Button AV;
+        private System.Windows.Forms.Button AT;
+        private System.Windows.Forms.Button TA;
+        private System.Windows.Forms.Button TV;
     }
 }
 
