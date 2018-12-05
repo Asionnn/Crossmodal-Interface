@@ -15,6 +15,12 @@ namespace Crossmodal_Interface
         public TactileToAuditory()
         {
             InitializeComponent();
+            WindowState = FormWindowState.Maximized;
+        }
+
+        private void TactileToAuditory_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

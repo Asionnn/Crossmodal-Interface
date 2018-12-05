@@ -27,22 +27,28 @@ namespace Crossmodal_Interface
 
     public partial class Form1 : Form
     {
+        private string name;
 
-        private List<UserInfo> users;
-        private int count;
-       
-
-
-    
         public Form1()
         {
             InitializeComponent();
-            count = 0;
+            WindowState = FormWindowState.Maximized;
+            VT.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width / 2 - 50, Screen.PrimaryScreen.WorkingArea.Height / 2 - 50);
+            TA.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width / 2 - 300, Screen.PrimaryScreen.WorkingArea.Height / 2 - 50);
+            AV.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width / 2 + 200, Screen.PrimaryScreen.WorkingArea.Height / 2 - 50);
+            welcomeText.Text = "Welcome to the NHanCE Laboratories Crossmodal Matching Interface\n Enter your full name and press \"Enter\"";
+            welcomeText.Font = new Font("Arial", 20, FontStyle.Bold);
+            VT.Visible = false;
+            AV.Visible = false;
+            TA.Visible = false;
+            nameLabel.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width / 2 - 100, Screen.PrimaryScreen.WorkingArea.Height / 2 - 195);
+            nameInput.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width / 2 - 50, Screen.PrimaryScreen.WorkingArea.Height / 2 - 200);
+        
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+        
         }
         private static void InitializeClass()
         {
@@ -51,17 +57,17 @@ namespace Crossmodal_Interface
 
         protected override void OnKeyUp(KeyEventArgs e)
         {
-            //This method is used to control the intensity of the VAT signals
-            //use in other forms, not this one
-        }
-
-        private void VA_Click(object sender, EventArgs e)
-        {
-            VisualToAuditory va = new VisualToAuditory();
-            this.Hide();
-            va.ShowDialog();
-            this.Show();
-
+            if(e.KeyCode == Keys.Enter)
+            {
+                //may need to add error checking to see if name already exists!
+                this.name = nameInput.Text;
+                VT.Visible = true;
+                AV.Visible = true;
+                TA.Visible = true;
+                welcomeText.Text = "Hi " + this.name + ", please press any of the buttons below to start the matching";
+                nameLabel.Visible = false;
+                nameInput.Visible = false;
+            }
         }
 
         private void VT_Click(object sender, EventArgs e)
@@ -70,39 +76,40 @@ namespace Crossmodal_Interface
             this.Hide();
             va.ShowDialog();
             this.Show();
+            welcomeText.Text = "";
+            VT.Visible = false;
+            if(!AV.Visible && !TA.Visible)
+            {
+                welcomeText.Text = "Done! Thank you for your inputs.\n You may now close this window";
+            }
         }
 
         private void AV_Click(object sender, EventArgs e)
         {
-            AuditoryToVisual va = new AuditoryToVisual();
+            AuditoryToVisual vt = new AuditoryToVisual();
             this.Hide();
-            va.ShowDialog();
+            vt.ShowDialog();
             this.Show();
-        }
-
-        private void AT_Click(object sender, EventArgs e)
-        {
-            AuditoryToTactile va = new AuditoryToTactile();
-            this.Hide();
-            va.ShowDialog();
-            this.Show();
+            welcomeText.Text = "";
+            AV.Visible = false;
+            if (!VT.Visible && !TA.Visible)
+            {
+                welcomeText.Text = "Done! Thank you for your inputs.\n You may now close this window";
+            }
         }
 
         private void TA_Click(object sender, EventArgs e)
         {
-            TactileToAuditory va = new TactileToAuditory();
+            TactileToAuditory ta = new TactileToAuditory();
             this.Hide();
-            va.ShowDialog();
+            ta.ShowDialog();
             this.Show();
+            welcomeText.Text = "";
+            TA.Visible = false;
+            if (!AV.Visible && !VT.Visible)
+            {
+                welcomeText.Text = "Done! Thank you for your inputs.\n You may now close this window";
+            }
         }
-
-        private void TV_Click(object sender, EventArgs e)
-        {
-            TactileToVisual va = new TactileToVisual();
-            this.Hide();
-            va.ShowDialog();
-            this.Show();
-        }
-
     }
 }

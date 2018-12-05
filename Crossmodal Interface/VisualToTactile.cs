@@ -15,6 +15,12 @@ namespace Crossmodal_Interface
         public VisualToTactile()
         {
             InitializeComponent();
+            WindowState = FormWindowState.Maximized;
+        }
+
+        private void VisualToTactile_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
