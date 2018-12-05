@@ -5,6 +5,9 @@
  * 
  * Purdue University
  * 
+ * 
+ * NOTES
+ * TODO
  */
 using System;
 using System.Collections.Generic;
@@ -30,7 +33,7 @@ namespace Crossmodal_Interface
        
 
 
-      
+    
         public Form1()
         {
             InitializeComponent();
@@ -49,30 +52,7 @@ namespace Crossmodal_Interface
         protected override void OnKeyUp(KeyEventArgs e)
         {
             //This method is used to control the intensity of the VAT signals
-            label1.Visible = true;
-            label1.Font = new Font(label1.Font.FontFamily, 16);
-
-            if (e.KeyCode == Keys.Right)
-            {
-              
-                label1.Text = count.ToString();
-            }
-            else if(e.KeyCode == Keys.Left)
-            {
-                
-                if (count == 0)
-                {
-                    //prevent negative value
-                    count = 0;
-               
-                }
-                else {
-                    //decrement signal values
-                    count--;
-     
-                    label1.Text = count.ToString();
-                }     
-            }
+            //use in other forms, not this one
         }
 
         private void VA_Click(object sender, EventArgs e)
