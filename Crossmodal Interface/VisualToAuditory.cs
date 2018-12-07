@@ -10,15 +10,15 @@ using System.Windows.Forms;
 
 namespace Crossmodal_Interface
 {
-    public partial class TactileToAuditory : Form
+    public partial class VisualToAuditory : Form
     {
-        public TactileToAuditory()
+        public VisualToAuditory()
         {
             InitializeComponent();
             WindowState = FormWindowState.Maximized;
         }
 
-        private void TactileToAuditory_Load(object sender, EventArgs e)
+        private void VisualToAuditory_Load(object sender, EventArgs e)
         {
 
         }

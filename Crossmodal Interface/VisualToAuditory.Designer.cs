@@ -1,6 +1,6 @@
 ﻿namespace Crossmodal_Interface
 {
-    partial class TactileToAuditory
+    partial class VisualToAuditory
     {
         /// <summary>
         /// Required designer variable.
@@ -28,20 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.redDot = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.redDot)).BeginInit();
             this.SuspendLayout();
             // 
-            // TactileToAuditory
+            // redDot
+            // 
+            this.redDot.Image = global::Crossmodal_Interface.Properties.Resources.Circle1;
+            this.redDot.Location = new System.Drawing.Point(294, 114);
+            this.redDot.Name = "redDot";
+            this.redDot.Size = new System.Drawing.Size(200, 200);
+            this.redDot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.redDot.TabIndex = 0;
+            this.redDot.TabStop = false;
+            // 
+            // VisualToAuditory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "TactileToAuditory";
-            this.Text = "TactileToAuditory";
-            this.Load += new System.EventHandler(this.TactileToAuditory_Load);
+            this.Controls.Add(this.redDot);
+            this.Name = "VisualToAuditory";
+            this.Text = "VisualToAuditory";
+            this.Load += new System.EventHandler(this.VisualToAuditory_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.redDot)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.PictureBox redDot;
     }
 }

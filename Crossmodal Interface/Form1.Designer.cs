@@ -29,12 +29,11 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.VT = new System.Windows.Forms.Button();
-            this.AV = new System.Windows.Forms.Button();
-            this.TA = new System.Windows.Forms.Button();
             this.welcomeText = new System.Windows.Forms.Label();
             this.nameInput = new System.Windows.Forms.TextBox();
             this.nameLabel = new System.Windows.Forms.Label();
+            this.VT = new System.Windows.Forms.Button();
+            this.VA = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -45,39 +44,6 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(0, 17);
             this.label1.TabIndex = 1;
-            // 
-            // VT
-            // 
-            this.VT.Location = new System.Drawing.Point(454, 210);
-            this.VT.Margin = new System.Windows.Forms.Padding(4);
-            this.VT.Name = "VT";
-            this.VT.Size = new System.Drawing.Size(100, 100);
-            this.VT.TabIndex = 3;
-            this.VT.Text = "V-T";
-            this.VT.UseVisualStyleBackColor = true;
-            this.VT.Click += new System.EventHandler(this.VT_Click);
-            // 
-            // AV
-            // 
-            this.AV.Location = new System.Drawing.Point(677, 210);
-            this.AV.Margin = new System.Windows.Forms.Padding(4);
-            this.AV.Name = "AV";
-            this.AV.Size = new System.Drawing.Size(100, 100);
-            this.AV.TabIndex = 4;
-            this.AV.Text = "A-V";
-            this.AV.UseVisualStyleBackColor = true;
-            this.AV.Click += new System.EventHandler(this.AV_Click);
-            // 
-            // TA
-            // 
-            this.TA.Location = new System.Drawing.Point(227, 210);
-            this.TA.Margin = new System.Windows.Forms.Padding(4);
-            this.TA.Name = "TA";
-            this.TA.Size = new System.Drawing.Size(100, 100);
-            this.TA.TabIndex = 6;
-            this.TA.Text = "T-A";
-            this.TA.UseVisualStyleBackColor = true;
-            this.TA.Click += new System.EventHandler(this.TA_Click);
             // 
             // welcomeText
             // 
@@ -104,18 +70,37 @@
             this.nameLabel.TabIndex = 9;
             this.nameLabel.Text = "Name:";
             // 
+            // VT
+            // 
+            this.VT.Location = new System.Drawing.Point(343, 231);
+            this.VT.Name = "VT";
+            this.VT.Size = new System.Drawing.Size(100, 100);
+            this.VT.TabIndex = 10;
+            this.VT.Text = "V-T";
+            this.VT.UseVisualStyleBackColor = true;
+            this.VT.Click += new System.EventHandler(this.VT_Click_1);
+            // 
+            // VA
+            // 
+            this.VA.Location = new System.Drawing.Point(555, 231);
+            this.VA.Name = "VA";
+            this.VA.Size = new System.Drawing.Size(100, 100);
+            this.VA.TabIndex = 11;
+            this.VA.Text = "V-A";
+            this.VA.UseVisualStyleBackColor = true;
+            this.VA.Click += new System.EventHandler(this.VA_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(1007, 673);
+            this.Controls.Add(this.VA);
+            this.Controls.Add(this.VT);
             this.Controls.Add(this.nameLabel);
             this.Controls.Add(this.nameInput);
             this.Controls.Add(this.welcomeText);
-            this.Controls.Add(this.TA);
-            this.Controls.Add(this.AV);
-            this.Controls.Add(this.VT);
             this.Controls.Add(this.label1);
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -129,12 +114,11 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button VT;
-        private System.Windows.Forms.Button AV;
-        private System.Windows.Forms.Button TA;
         private System.Windows.Forms.Label welcomeText;
         private System.Windows.Forms.TextBox nameInput;
         private System.Windows.Forms.Label nameLabel;
+        private System.Windows.Forms.Button VT;
+        private System.Windows.Forms.Button VA;
     }
 }
 

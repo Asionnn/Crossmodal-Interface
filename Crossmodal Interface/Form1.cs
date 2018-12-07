@@ -33,17 +33,15 @@ namespace Crossmodal_Interface
         {
             InitializeComponent();
             WindowState = FormWindowState.Maximized;
-            VT.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width / 2 - 50, Screen.PrimaryScreen.WorkingArea.Height / 2 - 50);
-            TA.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width / 2 - 300, Screen.PrimaryScreen.WorkingArea.Height / 2 - 50);
-            AV.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width / 2 + 200, Screen.PrimaryScreen.WorkingArea.Height / 2 - 50);
             welcomeText.Text = "Welcome to the NHanCE Laboratories Crossmodal Matching Interface\n Enter your full name and press \"Enter\"";
             welcomeText.Font = new Font("Arial", 20, FontStyle.Bold);
+            nameLabel.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width / 2 - 130, Screen.PrimaryScreen.WorkingArea.Height / 2 - 195);
+            nameInput.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width / 2 - 80, Screen.PrimaryScreen.WorkingArea.Height / 2 - 200);
+            VA.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width / 2 - 130, Screen.PrimaryScreen.WorkingArea.Height / 2 - 50);
+            VT.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width / 2 , Screen.PrimaryScreen.WorkingArea.Height / 2 - 50);
+            VA.Visible = false;
             VT.Visible = false;
-            AV.Visible = false;
-            TA.Visible = false;
-            nameLabel.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width / 2 - 100, Screen.PrimaryScreen.WorkingArea.Height / 2 - 195);
-            nameInput.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width / 2 - 50, Screen.PrimaryScreen.WorkingArea.Height / 2 - 200);
-        
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -61,54 +59,40 @@ namespace Crossmodal_Interface
             {
                 //may need to add error checking to see if name already exists!
                 this.name = nameInput.Text;
-                VT.Visible = true;
-                AV.Visible = true;
-                TA.Visible = true;
                 welcomeText.Text = "Hi " + this.name + ", please press any of the buttons below to start the matching";
                 nameLabel.Visible = false;
                 nameInput.Visible = false;
+                VT.Visible = true;
+                VA.Visible = true;
             }
         }
 
-        private void VT_Click(object sender, EventArgs e)
+        private void VT_Click_1(object sender, EventArgs e)
         {
-            VisualToTactile va = new VisualToTactile();
-            this.Hide();
-            va.ShowDialog();
-            this.Show();
-            welcomeText.Text = "";
-            VT.Visible = false;
-            if(!AV.Visible && !TA.Visible)
-            {
-                welcomeText.Text = "Done! Thank you for your inputs.\n You may now close this window";
-            }
-        }
-
-        private void AV_Click(object sender, EventArgs e)
-        {
-            AuditoryToVisual vt = new AuditoryToVisual();
+            VisualToTactile vt = new VisualToTactile();
             this.Hide();
             vt.ShowDialog();
             this.Show();
             welcomeText.Text = "";
-            AV.Visible = false;
-            if (!VT.Visible && !TA.Visible)
+            VT.Visible = false;
+            if (!VA.Visible)
             {
-                welcomeText.Text = "Done! Thank you for your inputs.\n You may now close this window";
+                welcomeText.Text = "Thank you for your inputs";
             }
         }
 
-        private void TA_Click(object sender, EventArgs e)
+        private void VA_Click(object sender, EventArgs e)
         {
-            TactileToAuditory ta = new TactileToAuditory();
+            VisualToAuditory va = new VisualToAuditory();
             this.Hide();
-            ta.ShowDialog();
+            va.ShowDialog();
             this.Show();
             welcomeText.Text = "";
-            TA.Visible = false;
-            if (!AV.Visible && !VT.Visible)
+            VA.Visible = false;
+            if (!VT.Visible)
             {
-                welcomeText.Text = "Done! Thank you for your inputs.\n You may now close this window";
+                welcomeText.Text = "Thank you for your inputs";
+
             }
         }
     }
