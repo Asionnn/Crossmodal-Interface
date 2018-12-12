@@ -8,13 +8,15 @@ namespace Crossmodal_Interface
 {
     class UserInfo
     {
-        private string id;
-        private int visual;
+		private string firstName;
+		private string lastName;
+		private int visual;
         private int auditory;
         private int tactile;
-        public UserInfo(string i, int v, int a, int t)
+        public UserInfo(string firstName, string lastName, int v, int a, int t)
         {
-            this.id = i;
+            this.firstName = firstName;
+			this.lastName = lastName;
             this.visual = v;
             this.auditory = a;
             this.tactile = t;
@@ -31,11 +33,15 @@ namespace Crossmodal_Interface
         {
             return this.tactile;
         }
-        public string getId()
-        {
-            return this.id;
-        }
-        public void setVisualIntensity(int value)
+		public string getFirstName()
+		{
+			return this.firstName;
+		}
+		public string getLastName()
+		{
+			return this.lastName;
+		}
+		public void setVisualIntensity(int value)
         {
             this.visual = value;
         }
