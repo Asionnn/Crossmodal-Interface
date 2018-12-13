@@ -18,8 +18,6 @@ namespace Crossmodal_Interface
             WindowState = FormWindowState.Maximized;
             this.redDot.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width / 2 - 80, Screen.PrimaryScreen.WorkingArea.Height / 2 + 20);
             this.exitBtn.Location = new Point(0, 0);
-
-
             FormBorderStyle = FormBorderStyle.None;
            
         }

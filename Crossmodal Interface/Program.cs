@@ -16,6 +16,7 @@ namespace Crossmodal_Interface
         [STAThread]
         static void Main()
         {
+            /*
 			string provider = ConfigurationManager.AppSettings["provider"];
 			string connectionString = ConfigurationManager.AppSettings["connectionString"];
 			DbProviderFactory factory = DbProviderFactories.GetFactory(provider);
@@ -50,10 +51,11 @@ namespace Crossmodal_Interface
 				command.ExecuteNonQuery();
 
 			}
-
+            */
 			Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+            
             
         }
 	
