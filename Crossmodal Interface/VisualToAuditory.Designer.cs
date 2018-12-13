@@ -30,18 +30,30 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VisualToAuditory));
             this.exitBtn = new System.Windows.Forms.Button();
+            this.instr = new System.Windows.Forms.Label();
             this.redDot = new Crossmodal_Interface.TransparentPictureBox();
+            this.finishBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // exitBtn
             // 
-            this.exitBtn.Location = new System.Drawing.Point(683, 375);
+            this.exitBtn.Location = new System.Drawing.Point(0, 0);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Size = new System.Drawing.Size(100, 40);
             this.exitBtn.TabIndex = 2;
             this.exitBtn.Text = "Exit";
             this.exitBtn.UseVisualStyleBackColor = true;
             this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
+            // 
+            // instr
+            // 
+            this.instr.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.instr.AutoSize = true;
+            this.instr.Location = new System.Drawing.Point(403, 77);
+            this.instr.Name = "instr";
+            this.instr.Size = new System.Drawing.Size(38, 17);
+            this.instr.TabIndex = 4;
+            this.instr.Text = "hello";
             // 
             // redDot
             // 
@@ -52,6 +64,16 @@
             this.redDot.TabIndex = 3;
             this.redDot.Text = "transparentPictureBox1";
             // 
+            // finishBtn
+            // 
+            this.finishBtn.Location = new System.Drawing.Point(688, 381);
+            this.finishBtn.Name = "finishBtn";
+            this.finishBtn.Size = new System.Drawing.Size(100, 40);
+            this.finishBtn.TabIndex = 5;
+            this.finishBtn.Text = "Finish";
+            this.finishBtn.UseVisualStyleBackColor = true;
+            this.finishBtn.Click += new System.EventHandler(this.finishBtn_Click);
+            // 
             // VisualToAuditory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -59,17 +81,22 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.finishBtn);
+            this.Controls.Add(this.instr);
             this.Controls.Add(this.redDot);
             this.Controls.Add(this.exitBtn);
             this.Name = "VisualToAuditory";
             this.Text = "VisualToAuditory";
             this.Load += new System.EventHandler(this.VisualToAuditory_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
         private System.Windows.Forms.Button exitBtn;
         private TransparentPictureBox redDot;
+        private System.Windows.Forms.Label instr;
+        private System.Windows.Forms.Button finishBtn;
     }
 }

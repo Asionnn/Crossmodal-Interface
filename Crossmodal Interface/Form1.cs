@@ -42,8 +42,7 @@ namespace Crossmodal_Interface
             VT.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width / 2 , Screen.PrimaryScreen.WorkingArea.Height / 2 - 50);
             VA.Visible = false;
             VT.Visible = false;
-            exitBtn.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width-500, Screen.PrimaryScreen.WorkingArea.Height - 100);
-
+           
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -61,11 +60,18 @@ namespace Crossmodal_Interface
             {
                 //may need to add error checking to see if name already exists!
                 this.name = nameInput.Text;
-                welcomeText.Text = "Hi " + this.name + ", please press any of the buttons below to start the matching";
-                nameLabel.Visible = false;
-                nameInput.Visible = false;
-                VT.Visible = true;
-                VA.Visible = true;
+                if (!name.Equals(""))
+                {
+                    welcomeText.Text = "Hi " + this.name + ", please click on any of the buttons below to start matching";
+                    nameLabel.Visible = false;
+                    nameInput.Visible = false;
+                    VT.Visible = true;
+                    VA.Visible = true;
+                }
+                else
+                {
+                    welcomeText.Text = "Please enter a name!";
+                }
             }
         }
 
@@ -96,11 +102,6 @@ namespace Crossmodal_Interface
                 welcomeText.Text = "Thank you for your inputs";
 
             }
-        }
-
-        private void exitBtn_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

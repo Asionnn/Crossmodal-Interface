@@ -34,7 +34,6 @@
             this.nameLabel = new System.Windows.Forms.Label();
             this.VT = new System.Windows.Forms.Button();
             this.VA = new System.Windows.Forms.Button();
-            this.exitBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -91,23 +90,12 @@
             this.VA.UseVisualStyleBackColor = true;
             this.VA.Click += new System.EventHandler(this.VA_Click);
             // 
-            // exitBtn
-            // 
-            this.exitBtn.Location = new System.Drawing.Point(870, 623);
-            this.exitBtn.Name = "exitBtn";
-            this.exitBtn.Size = new System.Drawing.Size(100, 50);
-            this.exitBtn.TabIndex = 12;
-            this.exitBtn.Text = "exit";
-            this.exitBtn.UseVisualStyleBackColor = true;
-            this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(1007, 673);
-            this.Controls.Add(this.exitBtn);
             this.Controls.Add(this.VA);
             this.Controls.Add(this.VT);
             this.Controls.Add(this.nameLabel);
@@ -131,7 +119,6 @@
         private System.Windows.Forms.Label nameLabel;
         private System.Windows.Forms.Button VT;
         private System.Windows.Forms.Button VA;
-        private System.Windows.Forms.Button exitBtn;
     }
 }
 
