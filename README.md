@@ -2,6 +2,18 @@
 
 Created for NHanCE Lab
 
+# What needs to be done before winter break!
+
+Finish matching visual to auditory (should be simple)
+  > goal : finish by the end of 12/13/2018
+  
+Finish matching visual to tactile (difficult!)
+  > need to find a way to control the intensity of the vibrations of the tactors
+  > may need to access the json file of the tactor and change the values there.
+  > Spend all of 12/14/2018 on trying to figure out this problem.
+  
+If there is time, start on the database implmentation
+  
 # Instructions
 
 // Thought Microsoft SQL Server is eaiser to maintain, so lets do sql server
