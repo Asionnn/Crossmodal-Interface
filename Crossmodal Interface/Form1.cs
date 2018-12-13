@@ -1,14 +1,15 @@
 ﻿/*
- * Purpose: Crossmodal Matching Interface for NHanCE Research Lab
+ * Purpose: Crossmodal Matching Interface for NHanCE Research Lab, Purdue Univeristy
  * 
- * Author: Collin Hong-da Li
+ * Creator: Collin Hong-da Li
  * 
- * Purdue University
+ * TODO: get example background image from minisim and layer a redDot(200x200) onto it
+ * TODO: get the sound file, and change the amplitude
+ * TODO: find a way to connect to the tactor to change the vibration intensity
  * 
  * 
- * NOTES
- * TODO
  */
+ 
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -41,6 +42,7 @@ namespace Crossmodal_Interface
             VT.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width / 2 , Screen.PrimaryScreen.WorkingArea.Height / 2 - 50);
             VA.Visible = false;
             VT.Visible = false;
+            exitBtn.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width-500, Screen.PrimaryScreen.WorkingArea.Height - 100);
 
         }
 
@@ -94,6 +96,11 @@ namespace Crossmodal_Interface
                 welcomeText.Text = "Thank you for your inputs";
 
             }
+        }
+
+        private void exitBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -16,11 +16,22 @@ namespace Crossmodal_Interface
         {
             InitializeComponent();
             WindowState = FormWindowState.Maximized;
+            this.redDot.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width / 2 - 80, Screen.PrimaryScreen.WorkingArea.Height / 2 + 20);
+            this.exitBtn.Location = new Point(0, 0);
+
+
+            FormBorderStyle = FormBorderStyle.None;
+           
         }
 
         private void VisualToAuditory_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void exitBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
