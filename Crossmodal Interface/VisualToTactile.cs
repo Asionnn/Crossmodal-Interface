@@ -19,7 +19,7 @@ namespace Crossmodal_Interface
             WindowState = FormWindowState.Maximized;
             FormBorderStyle = FormBorderStyle.None;
             redDot.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width / 2 - 80, Screen.PrimaryScreen.WorkingArea.Height / 2 + 30);
-            instr.Text = "Use the a & d to change the vibration intensity.\nClick \"Finish\" when you are done.\nYou will do this 3 times";
+            instr.Text = "Use a and d to change the vibration intensity.\nClick \"Finish\" when you are done.\nYou will do this 3 times";
             instr.Font = new Font("Arial", 20, FontStyle.Bold);
             finishBtn.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width - 80, Screen.PrimaryScreen.WorkingArea.Height);
 
@@ -37,7 +37,13 @@ namespace Crossmodal_Interface
             this.Close();
         }
 
-        private void VisualToTactile_KeyDown(object sender, KeyEventArgs e)
+
+        private void Finish_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void VisualToTactile_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.D)
             {
@@ -49,11 +55,6 @@ namespace Crossmodal_Interface
 
                 //decrease vibration
             }
-        }
-
-        private void Finish_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

@@ -89,7 +89,7 @@
             this.Name = "VisualToAuditory";
             this.Text = "VisualToAuditory";
             this.Load += new System.EventHandler(this.VisualToAuditory_Load);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.VisualToAuditory_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.VisualToAuditory_KeyUp);
             this.ResumeLayout(false);
             this.PerformLayout();
 

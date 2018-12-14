@@ -7,22 +7,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Media;
 namespace Crossmodal_Interface
 {
     public partial class VisualToAuditory : Form
     {
         private double auditoryIntensity;
+        private SoundPlayer alert;
+        private SoundPlayer[] alertIntensities = new SoundPlayer[40];
         public VisualToAuditory()
         {
             InitializeComponent();
             WindowState = FormWindowState.Maximized;
             redDot.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width / 2 - 80, Screen.PrimaryScreen.WorkingArea.Height / 2 + 30);
             FormBorderStyle = FormBorderStyle.None;
-            instr.Text = "Use the a & d keys to change the volume of the sound.\nClick \"Finish\" when you are done.\nYou will do this 3 times";
+            instr.Text = "Use a and d keys to change the volume of the sound.\nClick \"Finish\" when you are done.\nYou will do this 3 times";
             instr.Font = new Font("Arial", 20, FontStyle.Bold);
             finishBtn.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width-80, Screen.PrimaryScreen.WorkingArea.Height);
             auditoryIntensity = 0;
+            for(int x = 0;x < 40; x++)
+            {
+                alertIntensities[x] = new SoundPlayer("C:/Users/colli/Documents/NHanCE/66666.wav");
+            }
         }
 
         private void VisualToAuditory_Load(object sender, EventArgs e)
@@ -40,16 +46,16 @@ namespace Crossmodal_Interface
             this.Close();
         }
 
-        private void VisualToAuditory_KeyDown(object sender, KeyEventArgs e)
+
+
+        private void VisualToAuditory_KeyUp(object sender, KeyEventArgs e)
         {
             if(e.KeyCode == Keys.D)
             {
-                //increase volume
-                
+                alertIntensities[0].Play();
             }
             else if(e.KeyCode == Keys.A)
             {
-                
                 //decrease volume
             }
         }

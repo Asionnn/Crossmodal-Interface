@@ -99,7 +99,7 @@
             this.Name = "VisualToTactile";
             this.Text = "VisualToTactile";
             this.Load += new System.EventHandler(this.VisualToTactile_Load);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.VisualToTactile_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.VisualToTactile_KeyUp);
             this.ResumeLayout(false);
             this.PerformLayout();
 
