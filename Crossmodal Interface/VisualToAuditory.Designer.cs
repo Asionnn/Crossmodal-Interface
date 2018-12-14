@@ -31,8 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VisualToAuditory));
             this.exitBtn = new System.Windows.Forms.Button();
             this.instr = new System.Windows.Forms.Label();
-            this.redDot = new Crossmodal_Interface.TransparentPictureBox();
             this.finishBtn = new System.Windows.Forms.Button();
+            this.redDot = new Crossmodal_Interface.TransparentPictureBox();
             this.SuspendLayout();
             // 
             // exitBtn
@@ -49,20 +49,11 @@
             // 
             this.instr.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.instr.AutoSize = true;
-            this.instr.Location = new System.Drawing.Point(403, 77);
+            this.instr.Location = new System.Drawing.Point(0, 0);
             this.instr.Name = "instr";
             this.instr.Size = new System.Drawing.Size(38, 17);
             this.instr.TabIndex = 4;
             this.instr.Text = "hello";
-            // 
-            // redDot
-            // 
-            this.redDot.Image = global::Crossmodal_Interface.Properties.Resources.Circle;
-            this.redDot.Location = new System.Drawing.Point(328, 127);
-            this.redDot.Name = "redDot";
-            this.redDot.Size = new System.Drawing.Size(300, 300);
-            this.redDot.TabIndex = 3;
-            this.redDot.Text = "transparentPictureBox1";
             // 
             // finishBtn
             // 
@@ -74,20 +65,31 @@
             this.finishBtn.UseVisualStyleBackColor = true;
             this.finishBtn.Click += new System.EventHandler(this.finishBtn_Click);
             // 
+            // redDot
+            // 
+            this.redDot.Image = ((System.Drawing.Image)(resources.GetObject("redDot.Image")));
+            this.redDot.Location = new System.Drawing.Point(328, 127);
+            this.redDot.Name = "redDot";
+            this.redDot.Size = new System.Drawing.Size(300, 300);
+            this.redDot.TabIndex = 3;
+            this.redDot.Text = "transparentPictureBox1";
+            // 
             // VisualToAuditory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 486);
             this.Controls.Add(this.finishBtn);
             this.Controls.Add(this.instr);
             this.Controls.Add(this.redDot);
             this.Controls.Add(this.exitBtn);
+            this.KeyPreview = true;
             this.Name = "VisualToAuditory";
             this.Text = "VisualToAuditory";
             this.Load += new System.EventHandler(this.VisualToAuditory_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.VisualToAuditory_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

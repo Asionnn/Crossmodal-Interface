@@ -17,34 +17,19 @@ namespace Crossmodal_Interface
         {
             InitializeComponent();
             WindowState = FormWindowState.Maximized;
-            this.redDot.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width / 2 - 80, Screen.PrimaryScreen.WorkingArea.Height / 2 + 30);
+            redDot.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width / 2 - 80, Screen.PrimaryScreen.WorkingArea.Height / 2 + 30);
             FormBorderStyle = FormBorderStyle.None;
-            this.instr.Text = "Use the arrow keys to change the volume of the sound.\nClick \"finish\" when you are done.";
-            this.instr.Location = new Point(0, 0);
-            this.instr.Font = new Font("Arial", 20, FontStyle.Bold);
-            this.finishBtn.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width-80, Screen.PrimaryScreen.WorkingArea.Height);
-            this.auditoryIntensity = 0;
+            instr.Text = "Use the a & d keys to change the volume of the sound.\nClick \"Finish\" when you are done.\nYou will do this 3 times";
+            instr.Font = new Font("Arial", 20, FontStyle.Bold);
+            finishBtn.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width-80, Screen.PrimaryScreen.WorkingArea.Height);
+            auditoryIntensity = 0;
         }
 
         private void VisualToAuditory_Load(object sender, EventArgs e)
         {
 
         }
-        protected override void OnKeyUp(KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                if(e.KeyCode == Keys.Right)
-                {
-                    //increase volume
-                }
-                else if(e.KeyCode == Keys.Left)
-                {
-                    //decrease volume
-                }
-            
-            }
-        }
+    
         private void exitBtn_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -53,6 +38,20 @@ namespace Crossmodal_Interface
         private void finishBtn_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void VisualToAuditory_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.D)
+            {
+                //increase volume
+                
+            }
+            else if(e.KeyCode == Keys.A)
+            {
+                
+                //decrease volume
+            }
         }
     }
 }

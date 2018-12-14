@@ -60,6 +60,7 @@
             this.nameInput.Name = "nameInput";
             this.nameInput.Size = new System.Drawing.Size(180, 22);
             this.nameInput.TabIndex = 8;
+            this.nameInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.nameInput_KeyDown_1);
             // 
             // nameLabel
             // 

@@ -42,7 +42,6 @@ namespace Crossmodal_Interface
             VT.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width / 2 , Screen.PrimaryScreen.WorkingArea.Height / 2 - 50);
             VA.Visible = false;
             VT.Visible = false;
-           
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -54,27 +53,8 @@ namespace Crossmodal_Interface
 
         }
 
-        protected override void OnKeyUp(KeyEventArgs e)
-        {
-            if(e.KeyCode == Keys.Enter)
-            {
-                //may need to add error checking to see if name already exists!
-                this.name = nameInput.Text;
-                if (!name.Equals(""))
-                {
-                    welcomeText.Text = "Hi " + this.name + ", please click on any of the buttons below to start matching";
-                    nameLabel.Visible = false;
-                    nameInput.Visible = false;
-                    VT.Visible = true;
-                    VA.Visible = true;
-                }
-                else
-                {
-                    welcomeText.Text = "Please enter a name!";
-                }
-            }
-        }
-
+      
+      
         private void VT_Click_1(object sender, EventArgs e)
         {
             VisualToTactile vt = new VisualToTactile();
@@ -101,6 +81,27 @@ namespace Crossmodal_Interface
             {
                 welcomeText.Text = "Thank you for your inputs";
 
+            }
+        }
+
+        private void nameInput_KeyDown_1(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                //may need to add error checking to see if name already exists!
+                this.name = nameInput.Text;
+                if (!name.Equals(""))
+                {
+                    welcomeText.Text = "Hi " + this.name + ", please click on any of the buttons below to start matching";
+                    nameLabel.Visible = false;
+                    nameInput.Visible = false;
+                    VT.Visible = true;
+                    VA.Visible = true;
+                }
+                else
+                {
+                    welcomeText.Text = "Please enter a name!";
+                }
             }
         }
     }

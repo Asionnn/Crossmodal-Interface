@@ -12,13 +12,18 @@ namespace Crossmodal_Interface
 {
     public partial class VisualToTactile : Form
     {
+        private int tactileIntensity;
         public VisualToTactile()
         {
             InitializeComponent();
             WindowState = FormWindowState.Maximized;
             FormBorderStyle = FormBorderStyle.None;
-         
-            this.redDot.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width / 2 - 80, Screen.PrimaryScreen.WorkingArea.Height / 2 + 30);
+            redDot.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width / 2 - 80, Screen.PrimaryScreen.WorkingArea.Height / 2 + 30);
+            instr.Text = "Use the a & d to change the vibration intensity.\nClick \"Finish\" when you are done.\nYou will do this 3 times";
+            instr.Font = new Font("Arial", 20, FontStyle.Bold);
+            finishBtn.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width - 80, Screen.PrimaryScreen.WorkingArea.Height);
+
+            tactileIntensity = 0;
 
         }
 
@@ -26,22 +31,27 @@ namespace Crossmodal_Interface
         {
 
         }
-        protected override void OnKeyUp(KeyEventArgs e)
+      
+        private void exitBtn_Click(object sender, EventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            this.Close();
+        }
+
+        private void VisualToTactile_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.D)
             {
-                if (e.KeyCode == Keys.Right)
-                {
-                    //increase vibration
-                }
-                else if (e.KeyCode == Keys.Left)
-                {
-                    //decrease
-                }
+                //increase vibration
 
             }
+            else if (e.KeyCode == Keys.A)
+            {
+
+                //decrease vibration
+            }
         }
-        private void exitBtn_Click(object sender, EventArgs e)
+
+        private void Finish_Click(object sender, EventArgs e)
         {
             this.Close();
         }
