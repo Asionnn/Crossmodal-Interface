@@ -7,7 +7,7 @@ Created for NHanCE Lab
 - [ ] implement the modal matching between audio and visual(The participant must do this 3 times)
 - [ ] read the tactor documentation and find out how to connect to them
 - [ ] implement modal matching between tactile and visual(The participant must do this 3 times)
-- [ ] work on database storage
+- [ ] work on database implementation
 - [ ] make the interface look prettier
 # Instructions
 
