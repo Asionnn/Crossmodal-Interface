@@ -2,17 +2,14 @@
 
 Created for NHanCE Lab
 
-# What needs to be done before winter break!
-
-Finish matching visual to auditory (should be simple)
-  - goal : finish by the end of 12/13/2018
-  
-Finish matching visual to tactile (difficult!)
-  - need to find a way to control the intensity of the vibrations of the tactors
-  - may need to access the json file of the tactor and change the values there.
-  - Spend all of 12/14/2018 on trying to figure out this problem.
-  
-If there is time, start on the database implmentation
+# What needs to be done between 12/14/2018 - 1/4/2019!!!
+  -create several wav files of the alert sound each at a different volume 
+  -implement the modal matching between audio and visual(The participant must do this 3 times)
+  -read the tactor documentation and find out how to connect to them
+  -implement modal matching between tactile and visual(The participant must do this 3 times)
+  -work on database storage
+  -make the interface look prettier
+  -test to make sure the application works on the minisim
   
 # Instructions
 
