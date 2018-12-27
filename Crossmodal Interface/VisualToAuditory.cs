@@ -14,7 +14,8 @@ namespace Crossmodal_Interface
     {
         private double auditoryIntensity;
         private SoundPlayer alert;
-        private SoundPlayer[] alertIntensities = new SoundPlayer[40];
+        private SoundPlayer[] alertIntensities = new SoundPlayer[13];
+        private int currentSoundIndex;
         public VisualToAuditory()
         {
             InitializeComponent();
@@ -25,9 +26,18 @@ namespace Crossmodal_Interface
             instr.Font = new Font("Arial", 20, FontStyle.Bold);
             finishBtn.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width-80, Screen.PrimaryScreen.WorkingArea.Height);
             auditoryIntensity = 0;
-            for(int x = 0;x < 40; x++)
+            currentSoundIndex = 0;
+
+            int sPos = 0;
+            for(int x = 30;x <= 50; x+=10)
             {
-                alertIntensities[x] = new SoundPlayer("C:/Users/colli/Documents/NHanCE/66666.wav");
+                alertIntensities[sPos] = new SoundPlayer("C:/Users/colli/Documents/NHanCE/Sounds/" + x + "db.wav");
+                sPos++;
+            }
+            for(int x = 55;x <= 100; x += 5)
+            {
+                alertIntensities[sPos] = new SoundPlayer("C:/Users/colli/Documents/NHanCE/Sounds/" + x + "db.wav");
+                sPos++;
             }
         }
 
@@ -50,13 +60,26 @@ namespace Crossmodal_Interface
 
         private void VisualToAuditory_KeyUp(object sender, KeyEventArgs e)
         {
+           
             if(e.KeyCode == Keys.D)
             {
-                alertIntensities[0].Play();
+                
+                alertIntensities[currentSoundIndex].Play();
+                if(!(currentSoundIndex == alertIntensities.Length-1))
+                { 
+                    currentSoundIndex++;
+                    
+                }
+               
             }
             else if(e.KeyCode == Keys.A)
             {
-                //decrease volume
+                if (!(currentSoundIndex == 0))
+                {
+                    currentSoundIndex--;
+                }
+               
+                alertIntensities[currentSoundIndex].Play();
             }
         }
     }
