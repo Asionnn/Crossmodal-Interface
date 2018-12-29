@@ -31,15 +31,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VisualToAuditory));
             this.exitBtn = new System.Windows.Forms.Button();
             this.instr = new System.Windows.Forms.Label();
-            this.finishBtn = new System.Windows.Forms.Button();
+            this.submitBtn = new System.Windows.Forms.Button();
             this.redDot = new Crossmodal_Interface.TransparentPictureBox();
             this.SuspendLayout();
             // 
             // exitBtn
             // 
             this.exitBtn.Location = new System.Drawing.Point(0, 0);
+            this.exitBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.exitBtn.Name = "exitBtn";
-            this.exitBtn.Size = new System.Drawing.Size(100, 40);
+            this.exitBtn.Size = new System.Drawing.Size(75, 32);
             this.exitBtn.TabIndex = 2;
             this.exitBtn.Text = "Exit";
             this.exitBtn.UseVisualStyleBackColor = true;
@@ -50,42 +51,46 @@
             this.instr.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.instr.AutoSize = true;
             this.instr.Location = new System.Drawing.Point(0, 0);
+            this.instr.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.instr.Name = "instr";
-            this.instr.Size = new System.Drawing.Size(38, 17);
+            this.instr.Size = new System.Drawing.Size(29, 13);
             this.instr.TabIndex = 4;
             this.instr.Text = "hello";
             // 
-            // finishBtn
+            // submitBtn
             // 
-            this.finishBtn.Location = new System.Drawing.Point(688, 381);
-            this.finishBtn.Name = "finishBtn";
-            this.finishBtn.Size = new System.Drawing.Size(100, 40);
-            this.finishBtn.TabIndex = 5;
-            this.finishBtn.Text = "Finish";
-            this.finishBtn.UseVisualStyleBackColor = true;
-            this.finishBtn.Click += new System.EventHandler(this.finishBtn_Click);
+            this.submitBtn.Location = new System.Drawing.Point(516, 310);
+            this.submitBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.submitBtn.Name = "submitBtn";
+            this.submitBtn.Size = new System.Drawing.Size(75, 32);
+            this.submitBtn.TabIndex = 5;
+            this.submitBtn.Text = "Submit";
+            this.submitBtn.UseVisualStyleBackColor = true;
+            this.submitBtn.Click += new System.EventHandler(this.finishBtn_Click);
             // 
             // redDot
             // 
             this.redDot.Image = ((System.Drawing.Image)(resources.GetObject("redDot.Image")));
-            this.redDot.Location = new System.Drawing.Point(328, 127);
+            this.redDot.Location = new System.Drawing.Point(246, 103);
+            this.redDot.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.redDot.Name = "redDot";
-            this.redDot.Size = new System.Drawing.Size(300, 300);
+            this.redDot.Size = new System.Drawing.Size(225, 244);
             this.redDot.TabIndex = 3;
             this.redDot.Text = "transparentPictureBox1";
             // 
             // VisualToAuditory
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(800, 486);
-            this.Controls.Add(this.finishBtn);
+            this.ClientSize = new System.Drawing.Size(600, 395);
+            this.Controls.Add(this.submitBtn);
             this.Controls.Add(this.instr);
             this.Controls.Add(this.redDot);
             this.Controls.Add(this.exitBtn);
             this.KeyPreview = true;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "VisualToAuditory";
             this.Text = "VisualToAuditory";
             this.Load += new System.EventHandler(this.VisualToAuditory_Load);
@@ -99,6 +104,6 @@
         private System.Windows.Forms.Button exitBtn;
         private TransparentPictureBox redDot;
         private System.Windows.Forms.Label instr;
-        private System.Windows.Forms.Button finishBtn;
+        private System.Windows.Forms.Button submitBtn;
     }
 }

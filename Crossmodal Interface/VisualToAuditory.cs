@@ -12,10 +12,12 @@ namespace Crossmodal_Interface
 {
     public partial class VisualToAuditory : Form
     {
-        private double auditoryIntensity;
-        private SoundPlayer alert;
+        private int auditoryIntensity;
         private SoundPlayer[] alertIntensities = new SoundPlayer[13];
         private int currentSoundIndex;
+        private int[] data = new int[3];
+        private int[] decibelLevels = new int[13];
+        private int testCounter;
         public VisualToAuditory()
         {
             InitializeComponent();
@@ -24,18 +26,22 @@ namespace Crossmodal_Interface
             FormBorderStyle = FormBorderStyle.None;
             instr.Text = "Use a and d keys to change the volume of the sound.\nClick \"Finish\" when you are done.\nYou will do this 3 times";
             instr.Font = new Font("Arial", 20, FontStyle.Bold);
-            finishBtn.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width-80, Screen.PrimaryScreen.WorkingArea.Height);
+            submitBtn.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width-80, Screen.PrimaryScreen.WorkingArea.Height);
             auditoryIntensity = 0;
             currentSoundIndex = 0;
+            testCounter = 0;
 
             int sPos = 0;
+
             for(int x = 30;x <= 50; x+=10)
             {
+                decibelLevels[sPos] = x;
                 alertIntensities[sPos] = new SoundPlayer("C:/Users/colli/Documents/NHanCE/Sounds/" + x + "db.wav");
                 sPos++;
             }
             for(int x = 55;x <= 100; x += 5)
             {
+                decibelLevels[sPos] = x;
                 alertIntensities[sPos] = new SoundPlayer("C:/Users/colli/Documents/NHanCE/Sounds/" + x + "db.wav");
                 sPos++;
             }
@@ -53,10 +59,16 @@ namespace Crossmodal_Interface
 
         private void finishBtn_Click(object sender, EventArgs e)
         {
-            this.Close();
+            data[testCounter] = decibelLevels[currentSoundIndex];
+            testCounter++;
+            instr.Text = "" + currentSoundIndex;
+            if(testCounter == 3)
+            {
+                auditoryIntensity = (int)data.Average();
+                this.Close();
+            }
+            currentSoundIndex = 0;
         }
-
-
 
         private void VisualToAuditory_KeyUp(object sender, KeyEventArgs e)
         {
@@ -64,23 +76,31 @@ namespace Crossmodal_Interface
             if(e.KeyCode == Keys.D)
             {
                 
-                alertIntensities[currentSoundIndex].Play();
+                
                 if(!(currentSoundIndex == alertIntensities.Length-1))
                 { 
                     currentSoundIndex++;
                     
                 }
+                alertIntensities[currentSoundIndex].Play();
+                
                
             }
             else if(e.KeyCode == Keys.A)
             {
+                
                 if (!(currentSoundIndex == 0))
                 {
                     currentSoundIndex--;
                 }
-               
                 alertIntensities[currentSoundIndex].Play();
+                
             }
+        }
+
+        public int getAuditoryValue()
+        {
+            return auditoryIntensity;
         }
     }
 }

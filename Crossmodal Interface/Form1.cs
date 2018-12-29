@@ -29,6 +29,7 @@ namespace Crossmodal_Interface
     public partial class Form1 : Form
     {
         private string name;
+        private int auditoryValue;
 
         public Form1()
         {
@@ -80,8 +81,10 @@ namespace Crossmodal_Interface
             if (!VT.Visible)
             {
                 welcomeText.Text = "Thank you for your inputs";
-
             }
+            auditoryValue = va.getAuditoryValue();
+            welcomeText.Text = "" + auditoryValue;
+
         }
 
         private void nameInput_KeyDown_1(object sender, KeyEventArgs e)
