@@ -4,7 +4,7 @@ Created for NHanCE Lab
 
 # What needs to be done between 12/14/2018 - 1/13/2019
 - [x] create several wav files of the alert sound each at a different volume
-- [ ] implement the modal matching between audio and visual(The participant must do this 3 times)
+- [x] implement the modal matching between audio and visual(The participant must do this 3 times)
 - [ ] read the tactor documentation and find out how to connect to them
 - [ ] implement modal matching between tactile and visual(The participant must do this 3 times)
 - [ ] work on database implementation
