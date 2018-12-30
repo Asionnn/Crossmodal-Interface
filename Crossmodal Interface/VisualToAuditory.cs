@@ -8,16 +8,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Media;
+using System.Runtime.InteropServices;
+
 namespace Crossmodal_Interface
 {
     public partial class VisualToAuditory : Form
     {
         private int auditoryIntensity;
         private SoundPlayer[] alertIntensities = new SoundPlayer[13];
+        private SoundPlayer backgroundNoise;
         private int currentSoundIndex;
         private int[] data = new int[3];
         private int[] decibelLevels = new int[13];
         private int testCounter;
+
         public VisualToAuditory()
         {
             InitializeComponent();
@@ -45,7 +49,15 @@ namespace Crossmodal_Interface
                 alertIntensities[sPos] = new SoundPlayer("C:/Users/colli/Documents/NHanCE/Sounds/" + x + "db.wav");
                 sPos++;
             }
+
+            //backgroundNoise = new SoundPlayer("C:/Users/colli/Documents/NHanCE/Sounds/background.wav");
+            var p1 = new System.Windows.Media.MediaPlayer();
+            p1.Open(new System.Uri(@"C:/Users/colli/Documents/NHanCE/Sounds/background.wav"));
+            p1.Play();
+
         }
+
+  
 
         private void VisualToAuditory_Load(object sender, EventArgs e)
         {
@@ -82,9 +94,11 @@ namespace Crossmodal_Interface
                     currentSoundIndex++;
                     
                 }
+                alertIntensities[currentSoundIndex].LoadAsync();
                 alertIntensities[currentSoundIndex].Play();
-                
                
+
+
             }
             else if(e.KeyCode == Keys.A)
             {
@@ -93,6 +107,7 @@ namespace Crossmodal_Interface
                 {
                     currentSoundIndex--;
                 }
+                alertIntensities[currentSoundIndex].LoadAsync();
                 alertIntensities[currentSoundIndex].Play();
                 
             }
