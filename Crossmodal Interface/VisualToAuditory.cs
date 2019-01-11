@@ -16,16 +16,18 @@ namespace Crossmodal_Interface
     {
         private int auditoryIntensity;
         private SoundPlayer[] alertIntensities = new SoundPlayer[13];
-        private SoundPlayer backgroundNoise;
         private int currentSoundIndex;
         private int[] data = new int[3];
         private int[] decibelLevels = new int[13];
         private int testCounter;
+        private System.Windows.Media.MediaPlayer p1 = new System.Windows.Media.MediaPlayer();
+
 
         public VisualToAuditory()
         {
             InitializeComponent();
             WindowState = FormWindowState.Maximized;
+           
             redDot.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width / 2 - 80, Screen.PrimaryScreen.WorkingArea.Height / 2 + 30);
             FormBorderStyle = FormBorderStyle.None;
             instr.Text = "Use a and d keys to change the volume of the sound.\nClick \"Finish\" when you are done.\nYou will do this 3 times";
@@ -50,8 +52,6 @@ namespace Crossmodal_Interface
                 sPos++;
             }
 
-            //backgroundNoise = new SoundPlayer("C:/Users/colli/Documents/NHanCE/Sounds/background.wav");
-            var p1 = new System.Windows.Media.MediaPlayer();
             p1.Open(new System.Uri(@"C:/Users/colli/Documents/NHanCE/Sounds/background.wav"));
             p1.Play();
 
@@ -77,6 +77,7 @@ namespace Crossmodal_Interface
             if(testCounter == 3)
             {
                 auditoryIntensity = (int)data.Average();
+                p1.Stop();
                 this.Close();
             }
             currentSoundIndex = 0;
@@ -117,5 +118,6 @@ namespace Crossmodal_Interface
         {
             return auditoryIntensity;
         }
+       
     }
 }

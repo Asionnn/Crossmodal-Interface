@@ -68,6 +68,7 @@ namespace Crossmodal_Interface
             {
                 welcomeText.Text = "Thank you for your inputs";
             }
+            
         }
 
         private void VA_Click(object sender, EventArgs e)
@@ -83,6 +84,7 @@ namespace Crossmodal_Interface
                 welcomeText.Text = "Thank you for your inputs";
             }
             auditoryValue = va.getAuditoryValue();
+            welcomeText.Text = auditoryValue + "";
         }
 
         private void nameInput_KeyDown_1(object sender, KeyEventArgs e)
