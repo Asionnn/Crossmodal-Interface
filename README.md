@@ -5,7 +5,7 @@ Created for NHanCE Lab
 # Goals for 12/14/2018 - 1/13/2019
 - [x] create several wav files of the alert sound each at a different volume
 - [x] implement the modal matching between audio and visual(The participant must do this 3 times)
-- [ ] read the tactor documentation and find out how to connect to them
+- [x] read the tactor documentation and find out how to connect to them (found the header files used to control tactors)
 - [ ] implement modal matching between tactile and visual(The participant must do this 3 times)
 - [ ] work on database implementation
 - [ ] make the interface look prettier
