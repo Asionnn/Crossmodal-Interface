@@ -36,7 +36,6 @@ namespace Crossmodal_Interface
             auditoryIntensity = 0;
             currentSoundIndex = 0;
             testCounter = 0;
-
             int sPos = 0;
 
             for(int x = 30;x <= 50; x+=10)
@@ -62,25 +61,6 @@ namespace Crossmodal_Interface
         private void VisualToAuditory_Load(object sender, EventArgs e)
         {
 
-        }
-    
-        private void exitBtn_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void finishBtn_Click(object sender, EventArgs e)
-        {
-            data[testCounter] = decibelLevels[currentSoundIndex];
-            testCounter++;
-            instr.Text = "" + currentSoundIndex;
-            if(testCounter == 3)
-            {
-                auditoryIntensity = (int)data.Average();
-                p1.Stop();
-                this.Close();
-            }
-            currentSoundIndex = 0;
         }
 
         private void VisualToAuditory_KeyUp(object sender, KeyEventArgs e)
@@ -118,6 +98,19 @@ namespace Crossmodal_Interface
         {
             return auditoryIntensity;
         }
-       
+
+        private void Submit_Click(object sender, EventArgs e)
+        {
+            data[testCounter] = decibelLevels[currentSoundIndex];
+            testCounter++;
+            instr.Text = "" + testCounter + "/3 tests done";
+            if (testCounter == 3)
+            {
+                auditoryIntensity = (int)data.Average();
+                p1.Stop();
+                this.Close();
+            }
+            currentSoundIndex = 0;
+        }
     }
 }

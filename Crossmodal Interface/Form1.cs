@@ -54,8 +54,6 @@ namespace Crossmodal_Interface
 
         }
 
-      
-      
         private void VT_Click_1(object sender, EventArgs e)
         {
             VisualToTactile vt = new VisualToTactile();
@@ -84,7 +82,7 @@ namespace Crossmodal_Interface
                 welcomeText.Text = "Thank you for your inputs";
             }
             auditoryValue = va.getAuditoryValue();
-            welcomeText.Text = auditoryValue + "";
+            welcomeText.Text = "Decibel average: " + auditoryValue;
         }
 
         private void nameInput_KeyDown_1(object sender, KeyEventArgs e)

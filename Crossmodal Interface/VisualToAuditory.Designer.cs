@@ -29,22 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VisualToAuditory));
-            this.exitBtn = new System.Windows.Forms.Button();
             this.instr = new System.Windows.Forms.Label();
             this.submitBtn = new System.Windows.Forms.Button();
             this.redDot = new Crossmodal_Interface.TransparentPictureBox();
             this.SuspendLayout();
-            // 
-            // exitBtn
-            // 
-            this.exitBtn.Location = new System.Drawing.Point(0, 0);
-            this.exitBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.exitBtn.Name = "exitBtn";
-            this.exitBtn.Size = new System.Drawing.Size(100, 39);
-            this.exitBtn.TabIndex = 2;
-            this.exitBtn.Text = "Exit";
-            this.exitBtn.UseVisualStyleBackColor = true;
-            this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
             // 
             // instr
             // 
@@ -66,7 +54,7 @@
             this.submitBtn.TabIndex = 5;
             this.submitBtn.Text = "Submit";
             this.submitBtn.UseVisualStyleBackColor = true;
-            this.submitBtn.Click += new System.EventHandler(this.finishBtn_Click);
+            this.submitBtn.Click += new System.EventHandler(this.Submit_Click);
             // 
             // redDot
             // 
@@ -88,7 +76,6 @@
             this.Controls.Add(this.submitBtn);
             this.Controls.Add(this.instr);
             this.Controls.Add(this.redDot);
-            this.Controls.Add(this.exitBtn);
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "VisualToAuditory";
@@ -101,7 +88,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button exitBtn;
         private TransparentPictureBox redDot;
         private System.Windows.Forms.Label instr;
         private System.Windows.Forms.Button submitBtn;

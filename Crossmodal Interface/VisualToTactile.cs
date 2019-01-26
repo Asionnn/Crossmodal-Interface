@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -27,9 +28,16 @@ namespace Crossmodal_Interface
 
         }
 
+        [DllImport("C:/Users/colli/Documents/NHanCE/TactorAPI/TactorInterface.dll")]
+        public static extern int Discover(int a);
+        [DllImport("C:/Users/colli/Documents/NHanCE/TactorAPI/TactorInterface.dll")]
+        public static extern int InitializeTI();
+        [DllImport("C:/Users/colli/Documents/NHanCE/TactorAPI/TactorInterface.dll")]
+        public static extern IntPtr GetDiscoveredDeviceName(int index);
+
         private void VisualToTactile_Load(object sender, EventArgs e)
         {
-
+            instr.Text = "" + Discover(0);
         }
       
         private void exitBtn_Click(object sender, EventArgs e)
@@ -45,16 +53,23 @@ namespace Crossmodal_Interface
 
         private void VisualToTactile_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.D)
+            if(e.KeyCode == Keys.W)
             {
-                //increase vibration
+                
 
             }
             else if (e.KeyCode == Keys.A)
             {
 
-                //decrease vibration
+                instr.Text = "heyyyy";
             }
         }
+
+        
+
+        
+
+
+
     }
 }
