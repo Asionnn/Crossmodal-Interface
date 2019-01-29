@@ -28,11 +28,11 @@ namespace Crossmodal_Interface
             InitializeComponent();
             WindowState = FormWindowState.Maximized;
            
-            redDot.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width / 2 - 80, Screen.PrimaryScreen.WorkingArea.Height / 2 + 30);
+            redDot.Location = new Point(600,512);
             FormBorderStyle = FormBorderStyle.None;
             instr.Text = "Use a and d keys to change the volume of the sound.\nClick \"Finish\" when you are done.\nYou will do this 3 times";
             instr.Font = new Font("Arial", 20, FontStyle.Bold);
-            submitBtn.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width-80, Screen.PrimaryScreen.WorkingArea.Height);
+            submitBtn.Location = new Point(0,0);
             auditoryIntensity = 0;
             currentSoundIndex = 0;
             testCounter = 0;
@@ -41,17 +41,17 @@ namespace Crossmodal_Interface
             for(int x = 30;x <= 50; x+=10)
             {
                 decibelLevels[sPos] = x;
-                alertIntensities[sPos] = new SoundPlayer("C:/Users/colli/Documents/NHanCE/Sounds/" + x + "db.wav");
+                alertIntensities[sPos] = new SoundPlayer("C:/Users/minisim/Desktop/Crossmodal-Interface/Sounds/" + x + "db.wav");
                 sPos++;
             }
             for(int x = 55;x <= 100; x += 5)
             {
                 decibelLevels[sPos] = x;
-                alertIntensities[sPos] = new SoundPlayer("C:/Users/colli/Documents/NHanCE/Sounds/" + x + "db.wav");
+                alertIntensities[sPos] = new SoundPlayer("C:/Users/minisim/Desktop/Crossmodal-Interface/Sounds/" + x + "db.wav");
                 sPos++;
             }
 
-            p1.Open(new System.Uri(@"C:/Users/colli/Documents/NHanCE/Sounds/background.wav"));
+            p1.Open(new System.Uri(@"C:/Users/minisim/Desktop/Crossmodal-Interface/Sounds/background.wav"));
             p1.Play();
 
         }

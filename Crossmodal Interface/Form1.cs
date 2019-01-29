@@ -30,17 +30,21 @@ namespace Crossmodal_Interface
     {
         private string name;
         private int auditoryValue;
+        private int tactileValue;
 
         public Form1()
         {
+            this.Location = new Point(1280, 24);
             InitializeComponent();
             WindowState = FormWindowState.Maximized;
             welcomeText.Text = "Welcome to the NHanCE Laboratories Crossmodal Matching Interface\n Enter your full name and press \"Enter\"";
             welcomeText.Font = new Font("Arial", 20, FontStyle.Bold);
-            nameLabel.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width / 2 - 130, Screen.PrimaryScreen.WorkingArea.Height / 2 - 195);
-            nameInput.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width / 2 - 80, Screen.PrimaryScreen.WorkingArea.Height / 2 - 200);
-            VA.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width / 2 - 130, Screen.PrimaryScreen.WorkingArea.Height / 2 - 50);
-            VT.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width / 2 , Screen.PrimaryScreen.WorkingArea.Height / 2 - 50);
+            results.Text = "";
+            results.Font = new Font("Arial", 20, FontStyle.Bold);
+            nameLabel.Location = new Point(580,250);
+            nameInput.Location = new Point(620,250);
+            VA.Location = new Point(480,300);
+            VT.Location = new Point(720,300);
             VA.Visible = false;
             VT.Visible = false;
         }
@@ -62,10 +66,10 @@ namespace Crossmodal_Interface
             this.Show();
             welcomeText.Text = "";
             VT.Visible = false;
-            if (!VA.Visible)
-            {
-                welcomeText.Text = "Thank you for your inputs";
-            }
+            tactileValue = vt.getTactileValue();
+            results.Text += "Tactile average: " + tactileValue + "\n";
+            
+            
             
         }
 
@@ -77,12 +81,9 @@ namespace Crossmodal_Interface
             this.Show();
             welcomeText.Text = "";
             VA.Visible = false;
-            if (!VT.Visible)
-            {
-                welcomeText.Text = "Thank you for your inputs";
-            }
+        
             auditoryValue = va.getAuditoryValue();
-            welcomeText.Text = "Decibel average: " + auditoryValue;
+            results.Text += "Decibel average: " + auditoryValue + "\n";
         }
 
         private void nameInput_KeyDown_1(object sender, KeyEventArgs e)
