@@ -6,8 +6,8 @@ Created for NHanCE Lab
 - [x] create several wav files of the alert sound each at a different volume
 - [x] implement the modal matching between audio and visual(The participant must do this 3 times)
 - [x] read the tactor documentation and find out how to connect to them (found the header files used to control tactors)
-- [ ] implement modal matching between tactile and visual(The participant must do this 3 times)
-- [ ] work on database implementation
+- [x] implement modal matching between tactile and visual(The participant must do this 3 times)
+- [ ] work on database implementation (maybe)
 - [ ] make the interface look prettier
 # Instructions
 
