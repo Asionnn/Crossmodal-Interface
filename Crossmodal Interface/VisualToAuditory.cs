@@ -31,7 +31,7 @@ namespace Crossmodal_Interface
            
             redDot.Location = new Point(600,512);
             //FormBorderStyle = FormBorderStyle.None;
-            instr.Text = "Use a and d keys to change the volume of the sound.\nClick \"Finish\" when you are done.\nYou will do this 3 times";
+            instr.Text = "Use a and d keys to change the volume of the sound.\nClick \"Submit\" when you are done.\nYou will do this 3 times";
             instr.Font = new Font("Arial", 20, FontStyle.Bold);
             submitBtn.Location = new Point(0,0);
             auditoryIntensity = 0;

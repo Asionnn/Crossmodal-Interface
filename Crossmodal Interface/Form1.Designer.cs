@@ -35,6 +35,7 @@
             this.VT = new System.Windows.Forms.Button();
             this.VA = new System.Windows.Forms.Button();
             this.results = new System.Windows.Forms.Label();
+            this.retry = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -105,12 +106,24 @@
             this.results.Size = new System.Drawing.Size(0, 13);
             this.results.TabIndex = 12;
             // 
+            // retry
+            // 
+            this.retry.Location = new System.Drawing.Point(600, 364);
+            this.retry.Name = "retry";
+            this.retry.Size = new System.Drawing.Size(62, 46);
+            this.retry.TabIndex = 13;
+            this.retry.Text = "Retry";
+            this.retry.UseVisualStyleBackColor = true;
+            this.retry.Visible = false;
+            this.retry.Click += new System.EventHandler(this.retry_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(755, 547);
+            this.Controls.Add(this.retry);
             this.Controls.Add(this.results);
             this.Controls.Add(this.VA);
             this.Controls.Add(this.VT);
@@ -136,6 +149,7 @@
         private System.Windows.Forms.Button VT;
         private System.Windows.Forms.Button VA;
         private System.Windows.Forms.Label results;
+        private System.Windows.Forms.Button retry;
     }
 }
 

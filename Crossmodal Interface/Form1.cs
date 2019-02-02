@@ -29,12 +29,58 @@ namespace Crossmodal_Interface
         private int auditoryValue;
         private int tactileValue;
 
+        [DllImport(@"C:\Users\minisim\Desktop\Tactors\TDKAPI_1.0.6.0\libraries\Windows\TactorInterface.dll")]
+        public static extern IntPtr GetVersionNumber();
+
+        [DllImport(@"C:\Users\minisim\Desktop\Tactors\TDKAPI_1.0.6.0\libraries\Windows\TactorInterface.dll",
+            CallingConvention = CallingConvention.Cdecl)]
+        public static extern int Discover(int type);
+
+        [DllImport(@"C:\Users\minisim\Desktop\Tactors\TDKAPI_1.0.6.0\libraries\Windows\TactorInterface.dll",
+            CallingConvention = CallingConvention.Cdecl)]
+        public static extern int Connect(string name, int type, IntPtr _callback);
+
+        [DllImport(@"C:\Users\minisim\Desktop\Tactors\TDKAPI_1.0.6.0\libraries\Windows\TactorInterface.dll",
+            CallingConvention = CallingConvention.Cdecl)]
+        public static extern int InitializeTI();
+
+        [DllImport(@"C:\Users\minisim\Desktop\Tactors\TDKAPI_1.0.6.0\libraries\Windows\TactorInterface.dll",
+            CallingConvention = CallingConvention.Cdecl)]
+        public static extern int Pulse(int deviceID, int tacNum, int msDuration, int delay);
+
+        [DllImport(@"C:\Users\minisim\Desktop\Tactors\TDKAPI_1.0.6.0\libraries\Windows\TactorInterface.dll",
+            CallingConvention = CallingConvention.Cdecl)]
+        public static extern IntPtr GetDiscoveredDeviceName(int index);
+
+        [DllImport(@"C:\Users\minisim\Desktop\Tactors\TDKAPI_1.0.6.0\libraries\Windows\TactorInterface.dll",
+            CallingConvention = CallingConvention.Cdecl)]
+        public static extern int DiscoverLimited(int type, int amount);
+
+        [DllImport(@"C:\Users\minisim\Desktop\Tactors\TDKAPI_1.0.6.0\libraries\Windows\TactorInterface.dll",
+           CallingConvention = CallingConvention.Cdecl)]
+        public static extern int ChangeGain(int deviceID, int tacNum, int gainval, int delay);
+
+        private int tactorOn;
         public Form1()
         {
             this.Location = new Point(1280, 24);
             InitializeComponent();
             WindowState = FormWindowState.Maximized;
+
+            InitializeTI();
+            tactorOn = Discover(1);
+            
+
+            
             welcomeText.Text = "Welcome to the NHanCE Laboratories Crossmodal Matching Interface\n Enter your full name and press \"Enter\"";
+            if (tactorOn == 0)
+            {
+                welcomeText.Text = "Tactor not connected!\nPlease connect the tactor and press retry";
+                retry.Visible = true;
+                nameInput.Visible = false;
+                nameLabel.Visible = false;
+           
+            }
             welcomeText.Font = new Font("Arial", 20, FontStyle.Bold);
             results.Text = "";
             results.Font = new Font("Arial", 20, FontStyle.Bold);
@@ -45,11 +91,14 @@ namespace Crossmodal_Interface
             VT.Location = new Point(720,300);
             VA.Visible = false;
             VT.Visible = false;
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             this.SetDesktopLocation(1024, 0);
+           
+            
         }
         private static void InitializeClass()
         {
@@ -103,6 +152,18 @@ namespace Crossmodal_Interface
                 {
                     welcomeText.Text = "Please enter a name!";
                 }
+            }
+        }
+
+        private void retry_Click(object sender, EventArgs e)
+        {
+            tactorOn = Discover(1);
+            if(tactorOn == 1)
+            {
+                retry.Visible = false;
+                nameInput.Visible = true;
+                nameLabel.Visible = true;
+                welcomeText.Text = "Welcome to the NHanCE Laboratories Crossmodal Matching Interface\n Enter your full name and press \"Enter\"";
             }
         }
     }

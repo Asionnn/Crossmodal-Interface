@@ -59,13 +59,13 @@ namespace Crossmodal_Interface
             WindowState = FormWindowState.Maximized;
             //FormBorderStyle = FormBorderStyle.None;
             redDot.Location = new Point(600, 512);
-            instr.Text = "Use a and d to change the vibration intensity.\nClick \"Finish\" when you are done.\nYou will do this 3 times";
+            instr.Text = "Use a and d to change the vibration intensity.\nClick \"Submit\" when you are done.\nYou will do this 3 times";
             instr.Font = new Font("Arial", 20, FontStyle.Bold);
             submitBtn.Location = new Point(0, 0);
 
             //connect to Tactors
-            InitializeTI();
-            Discover(1);
+            //InitializeTI();
+            //Discover(1);
             string name = Marshal.PtrToStringAnsi((IntPtr)GetDiscoveredDeviceName(0));
             Connect(name, 1, IntPtr.Zero);
             ChangeGain(0, 1, 1, 0);
