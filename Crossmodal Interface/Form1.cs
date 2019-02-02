@@ -18,6 +18,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Collections;
+using System.IO;
 
 namespace Crossmodal_Interface
 {
@@ -28,6 +29,7 @@ namespace Crossmodal_Interface
         private string name;
         private int auditoryValue;
         private int tactileValue;
+        private string data;
 
         [DllImport(@"C:\Users\minisim\Desktop\Tactors\TDKAPI_1.0.6.0\libraries\Windows\TactorInterface.dll")]
         public static extern IntPtr GetVersionNumber();
@@ -91,6 +93,10 @@ namespace Crossmodal_Interface
             VT.Location = new Point(720,300);
             VA.Visible = false;
             VT.Visible = false;
+
+            data = File.ReadAllText("C:/Users/minisim/Desktop/Crossmodal-Interface/data.txt");
+
+           
             
         }
 
@@ -115,7 +121,8 @@ namespace Crossmodal_Interface
             welcomeText.Text = "";
             VT.Visible = false;
             tactileValue = vt.getTactileValue();
-            results.Text += "Tactile average: " + tactileValue + "\n";
+            results.Text += "Tactile average: " + tactileValue + Environment.NewLine;
+            data += "Tactile average: " + tactileValue + Environment.NewLine;
             
             
             
@@ -131,7 +138,8 @@ namespace Crossmodal_Interface
             welcomeText.Text = "";
             VA.Visible = false;
             auditoryValue = va.getAuditoryValue();
-            results.Text += "Decibel average: " + auditoryValue + "\n";
+            results.Text += "Decibel average: " + auditoryValue + Environment.NewLine;
+            data += "Auditory average: " + auditoryValue + Environment.NewLine;
         }
 
         private void nameInput_KeyDown_1(object sender, KeyEventArgs e)
@@ -147,6 +155,7 @@ namespace Crossmodal_Interface
                     nameInput.Visible = false;
                     VT.Visible = true;
                     VA.Visible = true;
+                    data += Environment.NewLine + "name:" + name + Environment.NewLine;
                 }
                 else
                 {
@@ -165,6 +174,11 @@ namespace Crossmodal_Interface
                 nameLabel.Visible = true;
                 welcomeText.Text = "Welcome to the NHanCE Laboratories Crossmodal Matching Interface\n Enter your full name and press \"Enter\"";
             }
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            File.WriteAllText("C:/Users/minisim/Desktop/Crossmodal-Interface/data.txt", data);
         }
     }
 }
