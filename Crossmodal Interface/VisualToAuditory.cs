@@ -25,11 +25,12 @@ namespace Crossmodal_Interface
 
         public VisualToAuditory()
         {
+        
             InitializeComponent();
             WindowState = FormWindowState.Maximized;
            
             redDot.Location = new Point(600,512);
-            FormBorderStyle = FormBorderStyle.None;
+            //FormBorderStyle = FormBorderStyle.None;
             instr.Text = "Use a and d keys to change the volume of the sound.\nClick \"Finish\" when you are done.\nYou will do this 3 times";
             instr.Font = new Font("Arial", 20, FontStyle.Bold);
             submitBtn.Location = new Point(0,0);
@@ -60,7 +61,7 @@ namespace Crossmodal_Interface
 
         private void VisualToAuditory_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void VisualToAuditory_KeyUp(object sender, KeyEventArgs e)

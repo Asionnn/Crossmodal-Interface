@@ -1,11 +1,8 @@
 ﻿/*
  * Purpose: Crossmodal Matching Interface for NHanCE Research Lab, Purdue Univeristy
  * 
- * Creator: Collin Hong-da Li
+ * Creator: Collin Hong-da Li | li2718@purdue.edu
  * 
- * TODO: get example background image from minisim and layer a redDot(200x200) onto it
- * TODO: get the sound file, and change the amplitude
- * TODO: find a way to connect to the tactor to change the vibration intensity
  * 
  * 
  */
@@ -43,6 +40,7 @@ namespace Crossmodal_Interface
             results.Font = new Font("Arial", 20, FontStyle.Bold);
             nameLabel.Location = new Point(580,250);
             nameInput.Location = new Point(620,250);
+            results.Location = new Point(0, 0);
             VA.Location = new Point(480,300);
             VT.Location = new Point(720,300);
             VA.Visible = false;
@@ -51,7 +49,7 @@ namespace Crossmodal_Interface
 
         private void Form1_Load(object sender, EventArgs e)
         {
-        
+            this.SetDesktopLocation(1024, 0);
         }
         private static void InitializeClass()
         {
@@ -62,6 +60,7 @@ namespace Crossmodal_Interface
         {
             VisualToTactile vt = new VisualToTactile();
             this.Hide();
+            vt.SetDesktopLocation(1024, 0);
             vt.ShowDialog();
             this.Show();
             welcomeText.Text = "";
@@ -77,11 +76,11 @@ namespace Crossmodal_Interface
         {
             VisualToAuditory va = new VisualToAuditory();
             this.Hide();
+            va.SetDesktopLocation(1024, 0);
             va.ShowDialog();
             this.Show();
             welcomeText.Text = "";
             VA.Visible = false;
-        
             auditoryValue = va.getAuditoryValue();
             results.Text += "Decibel average: " + auditoryValue + "\n";
         }

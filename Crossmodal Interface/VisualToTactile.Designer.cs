@@ -49,7 +49,7 @@
             // submitBtn
             // 
             this.submitBtn.Location = new System.Drawing.Point(468, 271);
-            this.submitBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.submitBtn.Margin = new System.Windows.Forms.Padding(2);
             this.submitBtn.Name = "submitBtn";
             this.submitBtn.Size = new System.Drawing.Size(75, 32);
             this.submitBtn.TabIndex = 6;
@@ -90,8 +90,9 @@
             this.Controls.Add(this.redDot);
             this.Controls.Add(this.transparentPictureBox1);
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "VisualToTactile";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "VisualToTactile";
             this.Load += new System.EventHandler(this.VisualToTactile_Load);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.VisualToTactile_KeyUp);

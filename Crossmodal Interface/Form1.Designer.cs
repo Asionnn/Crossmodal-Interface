@@ -47,7 +47,7 @@
             // 
             // welcomeText
             // 
-            this.welcomeText.Dock = System.Windows.Forms.DockStyle.Top;
+            this.welcomeText.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.welcomeText.Location = new System.Drawing.Point(0, 0);
             this.welcomeText.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.welcomeText.Name = "welcomeText";
@@ -58,7 +58,7 @@
             // nameInput
             // 
             this.nameInput.Location = new System.Drawing.Point(500, 0);
-            this.nameInput.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.nameInput.Margin = new System.Windows.Forms.Padding(2);
             this.nameInput.Name = "nameInput";
             this.nameInput.Size = new System.Drawing.Size(136, 20);
             this.nameInput.TabIndex = 8;
@@ -77,7 +77,7 @@
             // VT
             // 
             this.VT.Location = new System.Drawing.Point(257, 188);
-            this.VT.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.VT.Margin = new System.Windows.Forms.Padding(2);
             this.VT.Name = "VT";
             this.VT.Size = new System.Drawing.Size(75, 81);
             this.VT.TabIndex = 10;
@@ -88,7 +88,7 @@
             // VA
             // 
             this.VA.Location = new System.Drawing.Point(416, 188);
-            this.VA.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.VA.Margin = new System.Windows.Forms.Padding(2);
             this.VA.Name = "VA";
             this.VA.Size = new System.Drawing.Size(75, 81);
             this.VA.TabIndex = 11;
@@ -120,6 +120,7 @@
             this.Controls.Add(this.label1);
             this.KeyPreview = true;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
