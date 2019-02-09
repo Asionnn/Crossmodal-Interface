@@ -29,6 +29,8 @@ namespace Crossmodal_Interface
         private string name;
         private int auditoryValue;
         private int tactileValue;
+        private int [] tactileValues = new int[3];
+        private int [] audioValues = new int[3];
         private string data;
 
         [DllImport(@"C:\Users\minisim\Desktop\Tactors\TDKAPI_1.0.6.0\libraries\Windows\TactorInterface.dll")]
@@ -86,13 +88,11 @@ namespace Crossmodal_Interface
             welcomeText.Font = new Font("Arial", 20, FontStyle.Bold);
             results.Text = "";
             results.Font = new Font("Arial", 20, FontStyle.Bold);
-            nameLabel.Location = new Point(580,250);
-            nameInput.Location = new Point(620,250);
+            nameLabel.Location = new Point(540,255);
+            nameInput.Location = new Point(600,250);
             results.Location = new Point(0, 0);
-            VA.Location = new Point(480,300);
-            VT.Location = new Point(720,300);
-            VA.Visible = false;
-            VT.Visible = false;
+            startBtn.Location = new Point(600, 280);
+            startBtn.Visible = false;
 
             data = File.ReadAllText("C:/Users/minisim/Desktop/Crossmodal-Interface/data.txt");
 
@@ -111,36 +111,9 @@ namespace Crossmodal_Interface
 
         }
 
-        private void VT_Click_1(object sender, EventArgs e)
-        {
-            VisualToTactile vt = new VisualToTactile();
-            this.Hide();
-            vt.SetDesktopLocation(1024, 0);
-            vt.ShowDialog();
-            this.Show();
-            welcomeText.Text = "";
-            VT.Visible = false;
-            tactileValue = vt.getTactileValue();
-            results.Text += "Tactile average: " + tactileValue + Environment.NewLine;
-            data += "Tactile average: " + tactileValue + Environment.NewLine;
-            
-            
-            
-        }
+   
 
-        private void VA_Click(object sender, EventArgs e)
-        {
-            VisualToAuditory va = new VisualToAuditory();
-            this.Hide();
-            va.SetDesktopLocation(1024, 0);
-            va.ShowDialog();
-            this.Show();
-            welcomeText.Text = "";
-            VA.Visible = false;
-            auditoryValue = va.getAuditoryValue();
-            results.Text += "Decibel average: " + auditoryValue + Environment.NewLine;
-            data += "Auditory average: " + auditoryValue + Environment.NewLine;
-        }
+       
 
         private void nameInput_KeyDown_1(object sender, KeyEventArgs e)
         {
@@ -150,11 +123,10 @@ namespace Crossmodal_Interface
                 this.name = nameInput.Text;
                 if (!name.Equals(""))
                 {
-                    welcomeText.Text = "Hi " + this.name + ", please click on any of the buttons below to start matching";
+                    welcomeText.Text = "Hi " + this.name + ", please click start to begin";
                     nameLabel.Visible = false;
                     nameInput.Visible = false;
-                    VT.Visible = true;
-                    VA.Visible = true;
+                    startBtn.Visible = true;
                     data += Environment.NewLine + "name:" + name + Environment.NewLine;
                 }
                 else
@@ -179,6 +151,83 @@ namespace Crossmodal_Interface
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             File.WriteAllText("C:/Users/minisim/Desktop/Crossmodal-Interface/data.txt", data);
+        }
+
+        private void startBtn_Click(object sender, EventArgs e)
+        {
+
+            audioRange.Visible = false;
+            tactileRange.Visible = false;
+            VisualToAuditory va = new VisualToAuditory();
+            this.Hide();
+            va.SetDesktopLocation(1024, 0);
+            va.ShowDialog();
+            welcomeText.Text = "";
+            auditoryValue = va.getAuditoryValue();
+            //results.Text += "Decibel average: " + auditoryValue + Environment.NewLine;
+            //data += "Auditory average: " + auditoryValue + Environment.NewLine;
+            audioValues[0]= va.getAuditoryValue();
+
+            VisualToTactile vt = new VisualToTactile();
+            vt.SetDesktopLocation(1024, 0);
+            vt.ShowDialog();
+            welcomeText.Text = "";
+            tactileValues[0] = vt.getTactileValue();
+  
+            va.SetDesktopLocation(1024, 0);
+            va.ShowDialog();
+            audioValues[1] = va.getAuditoryValue();
+
+
+            vt.SetDesktopLocation(1024, 0);
+            vt.ShowDialog();
+            tactileValues[1] = vt.getTactileValue();
+
+            va.SetDesktopLocation(1024, 0);
+            va.ShowDialog();
+            audioValues[2] = va.getAuditoryValue();
+
+            vt.SetDesktopLocation(1024, 0);
+            vt.ShowDialog();
+            this.Show();
+            welcomeText.Text = "You may now close the window";
+            tactileValues[2] = vt.getTactileValue();
+
+            startBtn.Visible = false;
+
+            data += "Auditory values: ";
+            for(int x = 0; x < 3; x++)
+            {
+                if(x == 2)
+                {
+                    data += audioValues[2];
+                }
+                else
+                {
+                    data += audioValues[x] + ",";
+                }
+                
+            }
+
+            data += Environment.NewLine + "Auditory Average: " + (int)audioValues.Average();
+
+            data += Environment.NewLine + "Tactile values: ";
+            for (int x = 0; x < 3; x++)
+            {
+                if (x == 2)
+                {
+                    data += tactileValues[2];
+                }
+                else
+                {
+                    data += tactileValues[x] + ",";
+                }
+
+            }
+
+            data += Environment.NewLine + "Tactile average: " + (int)tactileValues.Average() + Environment.NewLine;
+
+
         }
     }
 }

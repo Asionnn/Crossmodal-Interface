@@ -45,6 +45,7 @@
             this.instr.Size = new System.Drawing.Size(35, 13);
             this.instr.TabIndex = 5;
             this.instr.Text = "label1";
+            this.instr.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // submitBtn
             // 

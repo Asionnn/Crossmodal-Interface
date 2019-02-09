@@ -32,10 +32,13 @@
             this.welcomeText = new System.Windows.Forms.Label();
             this.nameInput = new System.Windows.Forms.TextBox();
             this.nameLabel = new System.Windows.Forms.Label();
-            this.VT = new System.Windows.Forms.Button();
-            this.VA = new System.Windows.Forms.Button();
             this.results = new System.Windows.Forms.Label();
             this.retry = new System.Windows.Forms.Button();
+            this.audioRange = new System.Windows.Forms.PictureBox();
+            this.tactileRange = new System.Windows.Forms.PictureBox();
+            this.startBtn = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.audioRange)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tactileRange)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -75,28 +78,6 @@
             this.nameLabel.TabIndex = 9;
             this.nameLabel.Text = "Name:";
             // 
-            // VT
-            // 
-            this.VT.Location = new System.Drawing.Point(257, 188);
-            this.VT.Margin = new System.Windows.Forms.Padding(2);
-            this.VT.Name = "VT";
-            this.VT.Size = new System.Drawing.Size(75, 81);
-            this.VT.TabIndex = 10;
-            this.VT.Text = "V-T";
-            this.VT.UseVisualStyleBackColor = true;
-            this.VT.Click += new System.EventHandler(this.VT_Click_1);
-            // 
-            // VA
-            // 
-            this.VA.Location = new System.Drawing.Point(416, 188);
-            this.VA.Margin = new System.Windows.Forms.Padding(2);
-            this.VA.Name = "VA";
-            this.VA.Size = new System.Drawing.Size(75, 81);
-            this.VA.TabIndex = 11;
-            this.VA.Text = "V-A";
-            this.VA.UseVisualStyleBackColor = true;
-            this.VA.Click += new System.EventHandler(this.VA_Click);
-            // 
             // results
             // 
             this.results.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -117,16 +98,47 @@
             this.retry.Visible = false;
             this.retry.Click += new System.EventHandler(this.retry_Click);
             // 
+            // audioRange
+            // 
+            this.audioRange.Image = global::Crossmodal_Interface.Properties.Resources.AudioRange1;
+            this.audioRange.Location = new System.Drawing.Point(460, 500);
+            this.audioRange.Name = "audioRange";
+            this.audioRange.Size = new System.Drawing.Size(350, 156);
+            this.audioRange.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.audioRange.TabIndex = 15;
+            this.audioRange.TabStop = false;
+            // 
+            // tactileRange
+            // 
+            this.tactileRange.Image = global::Crossmodal_Interface.Properties.Resources.TactileRange;
+            this.tactileRange.Location = new System.Drawing.Point(460, 390);
+            this.tactileRange.Name = "tactileRange";
+            this.tactileRange.Size = new System.Drawing.Size(350, 156);
+            this.tactileRange.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.tactileRange.TabIndex = 14;
+            this.tactileRange.TabStop = false;
+            // 
+            // startBtn
+            // 
+            this.startBtn.Location = new System.Drawing.Point(299, 87);
+            this.startBtn.Name = "startBtn";
+            this.startBtn.Size = new System.Drawing.Size(75, 81);
+            this.startBtn.TabIndex = 16;
+            this.startBtn.Text = "Start";
+            this.startBtn.UseVisualStyleBackColor = true;
+            this.startBtn.Click += new System.EventHandler(this.startBtn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(755, 547);
+            this.Controls.Add(this.startBtn);
+            this.Controls.Add(this.audioRange);
+            this.Controls.Add(this.tactileRange);
             this.Controls.Add(this.retry);
             this.Controls.Add(this.results);
-            this.Controls.Add(this.VA);
-            this.Controls.Add(this.VT);
             this.Controls.Add(this.nameLabel);
             this.Controls.Add(this.nameInput);
             this.Controls.Add(this.welcomeText);
@@ -136,6 +148,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.audioRange)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tactileRange)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -147,10 +161,11 @@
         private System.Windows.Forms.Label welcomeText;
         private System.Windows.Forms.TextBox nameInput;
         private System.Windows.Forms.Label nameLabel;
-        private System.Windows.Forms.Button VT;
-        private System.Windows.Forms.Button VA;
         private System.Windows.Forms.Label results;
         private System.Windows.Forms.Button retry;
+        private System.Windows.Forms.PictureBox tactileRange;
+        private System.Windows.Forms.PictureBox audioRange;
+        private System.Windows.Forms.Button startBtn;
     }
 }
 

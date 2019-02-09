@@ -14,10 +14,8 @@ namespace Crossmodal_Interface
     public partial class VisualToTactile : Form
     {
         private int tactileIntensity;
-        private int testCounter;
-        private int[] data = new int[3];
-        private int avg;
         private System.Windows.Media.MediaPlayer p1 = new System.Windows.Media.MediaPlayer();
+        private int temp;
 
 
         [DllImport(@"C:\Users\minisim\Desktop\Tactors\TDKAPI_1.0.6.0\libraries\Windows\TactorInterface.dll")]
@@ -59,7 +57,7 @@ namespace Crossmodal_Interface
             WindowState = FormWindowState.Maximized;
             //FormBorderStyle = FormBorderStyle.None;
             redDot.Location = new Point(600, 512);
-            instr.Text = "Use a and d to change the vibration intensity.\nClick \"Submit\" when you are done.\nYou will do this 3 times";
+            instr.Text = "Use the left and right arrow keys to change the vibration intensity.\nClick \"Submit\" when you are done.";
             instr.Font = new Font("Arial", 20, FontStyle.Bold);
             submitBtn.Location = new Point(0, 0);
 
@@ -73,7 +71,7 @@ namespace Crossmodal_Interface
 
 
             tactileIntensity = 0;
-            testCounter = 0;
+
 
             p1.Open(new System.Uri(@"C:/Users/minisim/Desktop/Crossmodal-Interface/Sounds/background.wav"));
             p1.Play();
@@ -84,7 +82,7 @@ namespace Crossmodal_Interface
 
         private void VisualToTactile_Load(object sender, EventArgs e)
         {
-         
+            p1.Play();
         }
       
      
@@ -94,7 +92,7 @@ namespace Crossmodal_Interface
 
         private void VisualToTactile_KeyUp(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.D)
+            if(e.KeyCode == Keys.Right)
             {
                 if(tactileIntensity >= 255)
                 {
@@ -102,7 +100,7 @@ namespace Crossmodal_Interface
                 }
                 else
                 {
-                    tactileIntensity += 5;
+                    tactileIntensity += 17;
                 }
                 
                 ChangeGain(0, 1, tactileIntensity, 0);
@@ -112,15 +110,16 @@ namespace Crossmodal_Interface
                
 
             }
-            else if (e.KeyCode == Keys.A)
+            else if (e.KeyCode == Keys.Left)
             {
                 if(tactileIntensity <= 5)
                 {
                     tactileIntensity = 5;
+
                 }
                 else
                 {
-                    tactileIntensity -= 5;
+                    tactileIntensity -= 17;
                 }
               
 
@@ -139,21 +138,16 @@ namespace Crossmodal_Interface
 
         private void submitBtn_Click(object sender, EventArgs e)
         {
-            data[testCounter] = tactileIntensity;
-            testCounter++;
-            instr.Text = "" + testCounter + "/3 tests done";
-            if (testCounter == 3)
-            {
-                avg = (int)data.Average();
-                p1.Stop();
-                this.Close();
-            }
+            temp = tactileIntensity;
             tactileIntensity = 0;
+            p1.Stop();
+            this.Close();
+
         }
 
         public int getTactileValue()
         {
-            return avg;
+            return temp;
         }
     
     }

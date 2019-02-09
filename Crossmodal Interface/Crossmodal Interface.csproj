@@ -124,5 +124,14 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TactileRange.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AudioRange.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AudioRange1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

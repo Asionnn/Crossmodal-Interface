@@ -17,10 +17,9 @@ namespace Crossmodal_Interface
         private int auditoryIntensity;
         private SoundPlayer[] alertIntensities = new SoundPlayer[13];
         private int currentSoundIndex;
-        private int[] data = new int[3];
         private int[] decibelLevels = new int[13];
-        private int testCounter;
         private System.Windows.Media.MediaPlayer p1 = new System.Windows.Media.MediaPlayer();
+        private int temp;
 
 
         public VisualToAuditory()
@@ -31,12 +30,11 @@ namespace Crossmodal_Interface
            
             redDot.Location = new Point(600,512);
             //FormBorderStyle = FormBorderStyle.None;
-            instr.Text = "Use a and d keys to change the volume of the sound.\nClick \"Submit\" when you are done.\nYou will do this 3 times";
+            instr.Text = "Use the left and right arrow keys to change the volume of the sound.\nClick \"Submit\" when you are done.";
             instr.Font = new Font("Arial", 20, FontStyle.Bold);
             submitBtn.Location = new Point(0,0);
             auditoryIntensity = 0;
             currentSoundIndex = 0;
-            testCounter = 0;
             int sPos = 0;
 
             for(int x = 30;x <= 50; x+=10)
@@ -61,13 +59,13 @@ namespace Crossmodal_Interface
 
         private void VisualToAuditory_Load(object sender, EventArgs e)
         {
-            
+            p1.Play();
         }
 
         private void VisualToAuditory_KeyUp(object sender, KeyEventArgs e)
         {
            
-            if(e.KeyCode == Keys.D)
+            if(e.KeyCode == Keys.Right)
             {
                 
                 
@@ -82,7 +80,7 @@ namespace Crossmodal_Interface
 
 
             }
-            else if(e.KeyCode == Keys.A)
+            else if(e.KeyCode == Keys.Left)
             {
                 
                 if (!(currentSoundIndex == 0))
@@ -97,21 +95,15 @@ namespace Crossmodal_Interface
 
         public int getAuditoryValue()
         {
-            return auditoryIntensity;
+            return temp;
         }
 
         private void Submit_Click(object sender, EventArgs e)
         {
-            data[testCounter] = decibelLevels[currentSoundIndex];
-            testCounter++;
-            instr.Text = "" + testCounter + "/3 tests done";
-            if (testCounter == 3)
-            {
-                auditoryIntensity = (int)data.Average();
-                p1.Stop();
-                this.Close();
-            }
+            temp = decibelLevels[currentSoundIndex];
             currentSoundIndex = 0;
+            p1.Stop();
+            this.Close();
         }
     }
 }
