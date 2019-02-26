@@ -67,7 +67,7 @@ namespace Crossmodal_Interface
             string name = Marshal.PtrToStringAnsi((IntPtr)GetDiscoveredDeviceName(0));
             Connect(name, 1, IntPtr.Zero);
             ChangeGain(0, 1, 1, 0);
-            ChangeGain(0, 1, 1, 0);
+            ChangeGain(0, 2, 1, 0);
 
 
             tactileIntensity = 0;
@@ -112,9 +112,9 @@ namespace Crossmodal_Interface
             }
             else if (e.KeyCode == Keys.Left)
             {
-                if(tactileIntensity <= 5)
+                if(tactileIntensity <= 17)
                 {
-                    tactileIntensity = 5;
+                    tactileIntensity = 17;
 
                 }
                 else
@@ -122,8 +122,6 @@ namespace Crossmodal_Interface
                     tactileIntensity -= 17;
                 }
               
-
-
                 ChangeGain(0, 1, tactileIntensity, 0);
                 ChangeGain(0, 2, tactileIntensity, 0);
                 Pulse(0, 1, 250, 0);

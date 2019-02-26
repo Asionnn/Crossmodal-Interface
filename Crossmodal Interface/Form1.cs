@@ -19,6 +19,7 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Collections;
 using System.IO;
+using System.Media;
 
 namespace Crossmodal_Interface
 {
@@ -65,6 +66,11 @@ namespace Crossmodal_Interface
         public static extern int ChangeGain(int deviceID, int tacNum, int gainval, int delay);
 
         private int tactorOn;
+
+        private SoundPlayer minSound;
+        private SoundPlayer lowSound;
+        private SoundPlayer highSound;
+        private SoundPlayer maxSound;
         public Form1()
         {
             this.Location = new Point(1280, 24);
@@ -73,9 +79,11 @@ namespace Crossmodal_Interface
 
             InitializeTI();
             tactorOn = Discover(1);
-            
+            string name = Marshal.PtrToStringAnsi((IntPtr)GetDiscoveredDeviceName(0));
+            Connect(name, 1, IntPtr.Zero);
 
-            
+
+
             welcomeText.Text = "Welcome to the NHanCE Laboratories Crossmodal Matching Interface\n Enter your full name and press \"Enter\"";
             if (tactorOn == 0)
             {
@@ -94,7 +102,23 @@ namespace Crossmodal_Interface
             startBtn.Location = new Point(600, 280);
             startBtn.Visible = false;
 
+            MaxGain.Location = new Point(730, 500);
+            HighGain.Location = new Point(650, 500);
+            LowGain.Location = new Point(570, 500);
+            MinGain.Location = new Point(490, 500);
+
+            MaxDecibel.Location = new Point(730, 600);
+            HighDecibel.Location = new Point(650, 600);
+            LowDecibel.Location = new Point(570, 600);
+            MinDecibel.Location = new Point(490, 600);
+
+            minSound = new SoundPlayer("C:/Users/minisim/Desktop/Crossmodal-Interface/Sounds/30db.wav");
+            lowSound = new SoundPlayer("C:/Users/minisim/Desktop/Crossmodal-Interface/Sounds/60db.wav");
+            highSound = new SoundPlayer("C:/Users/minisim/Desktop/Crossmodal-Interface/Sounds/80db.wav");
+            maxSound = new SoundPlayer("C:/Users/minisim/Desktop/Crossmodal-Interface/Sounds/100db.wav");
+
             data = File.ReadAllText("C:/Users/minisim/Desktop/Crossmodal-Interface/data.txt");
+
 
            
             
@@ -156,8 +180,7 @@ namespace Crossmodal_Interface
         private void startBtn_Click(object sender, EventArgs e)
         {
 
-            audioRange.Visible = false;
-            tactileRange.Visible = false;
+        
             VisualToAuditory va = new VisualToAuditory();
             this.Hide();
             va.SetDesktopLocation(1024, 0);
@@ -228,6 +251,61 @@ namespace Crossmodal_Interface
             data += Environment.NewLine + "Tactile average: " + (int)tactileValues.Average() + Environment.NewLine;
 
 
+        }
+
+        private void MinGain_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine(Discover(1));
+            ChangeGain(0, 1, 17, 0);
+            ChangeGain(0, 2, 17, 0);
+            Pulse(0, 1, 250, 0);
+            Pulse(0, 2, 250, 0);
+
+        }
+
+        private void MaxGain_Click(object sender, EventArgs e)
+        {
+         
+            ChangeGain(0, 1, 255, 0);
+            ChangeGain(0, 2, 255, 0);
+            Pulse(0, 1, 250, 0);
+            Pulse(0, 2, 250, 0);
+        }
+
+        private void LowGain_Click(object sender, EventArgs e)
+        {
+            ChangeGain(0, 1,65, 0);
+            ChangeGain(0, 2, 65, 0);
+            Pulse(0, 1, 250, 0);
+            Pulse(0, 2, 250, 0);
+        }
+
+        private void HighGain_Click(object sender, EventArgs e)
+        {
+            ChangeGain(0, 1,195, 0);
+            ChangeGain(0, 2,195, 0);
+            Pulse(0, 1, 250, 0);
+            Pulse(0, 2, 250, 0);
+        }
+
+        private void MinDecibel_Click(object sender, EventArgs e)
+        {
+            minSound.Play();
+        }
+
+        private void LowDecibel_Click(object sender, EventArgs e)
+        {
+            lowSound.Play();
+        }
+
+        private void HighDecibel_Click(object sender, EventArgs e)
+        {
+            highSound.Play();
+        }
+
+        private void MaxDecibel_Click(object sender, EventArgs e)
+        {
+            maxSound.Play();
         }
     }
 }
