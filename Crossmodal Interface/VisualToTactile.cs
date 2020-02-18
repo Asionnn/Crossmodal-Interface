@@ -48,6 +48,7 @@ namespace Crossmodal_Interface
         [DllImport(@"C:\Users\minisim\Desktop\Tactors\TDKAPI_1.0.6.0\libraries\Windows\TactorInterface.dll",
             CallingConvention = CallingConvention.Cdecl)]
         public static extern int ChangeGain(int deviceID, int tacNum, int gainval, int delay);
+        
 
         public VisualToTactile()
         {

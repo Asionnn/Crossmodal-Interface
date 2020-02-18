@@ -20,6 +20,7 @@ using System.Runtime.InteropServices;
 using System.Collections;
 using System.IO;
 using System.Media;
+using System.Threading;
 
 namespace Crossmodal_Interface
 {
@@ -64,6 +65,10 @@ namespace Crossmodal_Interface
         [DllImport(@"C:\Users\minisim\Desktop\Tactors\TDKAPI_1.0.6.0\libraries\Windows\TactorInterface.dll",
            CallingConvention = CallingConvention.Cdecl)]
         public static extern int ChangeGain(int deviceID, int tacNum, int gainval, int delay);
+
+        [DllImport(@"C:\Users\minisim\Desktop\Tactors\TDKAPI_1.0.6.0\libraries\Windows\TactorInterface.dll",
+            CallingConvention = CallingConvention.Cdecl)]
+        public static extern int CloseAll();
 
         private int tactorOn;
 
@@ -117,7 +122,7 @@ namespace Crossmodal_Interface
             highSound = new SoundPlayer("C:/Users/minisim/Desktop/Crossmodal-Interface/Sounds/80db.wav");
             maxSound = new SoundPlayer("C:/Users/minisim/Desktop/Crossmodal-Interface/Sounds/100db.wav");
 
-            data = File.ReadAllText("C:/Users/minisim/Desktop/Crossmodal-Interface/data.txt");
+            data = File.ReadAllText("C:/Gaojian/Crossmodal-Interface/Crossmodal Interface/data/data.txt");
 
 
            
@@ -174,7 +179,8 @@ namespace Crossmodal_Interface
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            File.WriteAllText("C:/Users/minisim/Desktop/Crossmodal-Interface/data.txt", data);
+            CloseAll();
+            File.WriteAllText("C:/Gaojian/Crossmodal-Interface/Crossmodal Interface/data/data.txt", data);
         }
 
         private void startBtn_Click(object sender, EventArgs e)
