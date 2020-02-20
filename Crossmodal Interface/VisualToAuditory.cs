@@ -40,17 +40,17 @@ namespace Crossmodal_Interface
             for(int x = 30;x <= 50; x+=10)
             {
                 decibelLevels[sPos] = x;
-                alertIntensities[sPos] = new SoundPlayer("C:/Users/minisim/Desktop/Crossmodal-Interface/Sounds/" + x + "db.wav");
+                alertIntensities[sPos] = new SoundPlayer("C:/Gaojian/Crossmodal-Interface/Sounds/" + x + "db.wav");
                 sPos++;
             }
             for(int x = 55;x <= 100; x += 5)
             {
                 decibelLevels[sPos] = x;
-                alertIntensities[sPos] = new SoundPlayer("C:/Users/minisim/Desktop/Crossmodal-Interface/Sounds/" + x + "db.wav");
+                alertIntensities[sPos] = new SoundPlayer("C:/Gaojian/Crossmodal-Interface/Sounds/" + x + "db.wav");
                 sPos++;
             }
 
-            p1.Open(new System.Uri(@"C:/Users/minisim/Desktop/Crossmodal-Interface/Sounds/background.wav"));
+            p1.Open(new System.Uri(@"C:/Gaojian/Crossmodal-Interface/Sounds/background.wav"));
             p1.Play();
 
         }

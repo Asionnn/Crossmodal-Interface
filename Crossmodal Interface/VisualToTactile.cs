@@ -74,7 +74,7 @@ namespace Crossmodal_Interface
             tactileIntensity = 0;
 
 
-            p1.Open(new System.Uri(@"C:/Users/minisim/Desktop/Crossmodal-Interface/Sounds/background.wav"));
+            p1.Open(new System.Uri(@"C:/Gaojian/Crossmodal-Interface/Sounds/background.wav"));
             p1.Play();
 
         }

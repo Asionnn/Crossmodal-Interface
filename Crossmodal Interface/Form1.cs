@@ -117,10 +117,10 @@ namespace Crossmodal_Interface
             LowDecibel.Location = new Point(570, 600);
             MinDecibel.Location = new Point(490, 600);
 
-            minSound = new SoundPlayer("C:/Users/minisim/Desktop/Crossmodal-Interface/Sounds/30db.wav");
-            lowSound = new SoundPlayer("C:/Users/minisim/Desktop/Crossmodal-Interface/Sounds/60db.wav");
-            highSound = new SoundPlayer("C:/Users/minisim/Desktop/Crossmodal-Interface/Sounds/80db.wav");
-            maxSound = new SoundPlayer("C:/Users/minisim/Desktop/Crossmodal-Interface/Sounds/100db.wav");
+            minSound = new SoundPlayer("C:/Gaojian/Crossmodal-Interface/Sounds/30db.wav");
+            lowSound = new SoundPlayer("C:/Gaojian/Crossmodal-Interface/Sounds/60db.wav");
+            highSound = new SoundPlayer("C:/Gaojian/Crossmodal-Interface/Sounds/80db.wav");
+            maxSound = new SoundPlayer("C:/Gaojian/Crossmodal-Interface/Sounds/100db.wav");
 
             data = File.ReadAllText("C:/Gaojian/Crossmodal-Interface/Crossmodal Interface/data/data.txt");
 
