@@ -122,7 +122,7 @@ namespace Crossmodal_Interface
             highSound = new SoundPlayer("C:/Gaojian/Crossmodal-Interface/Sounds/80db.wav");
             maxSound = new SoundPlayer("C:/Gaojian/Crossmodal-Interface/Sounds/100db.wav");
 
-            data = File.ReadAllText("C:/Gaojian/Crossmodal-Interface/Crossmodal Interface/data/data.txt");
+           // data = File.ReadAllText("C:/Gaojian/Crossmodal-Interface/Crossmodal Interface/data/data.txt");
 
 
            
@@ -180,7 +180,7 @@ namespace Crossmodal_Interface
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             CloseAll();
-            File.WriteAllText("C:/Gaojian/Crossmodal-Interface/Crossmodal Interface/data/data.txt", data);
+            File.AppendAllText("C:/Gaojian/Crossmodal-Interface/Crossmodal Interface/data/data.txt", data);
         }
 
         private void startBtn_Click(object sender, EventArgs e)
